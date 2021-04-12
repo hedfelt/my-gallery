@@ -1,0 +1,21 @@
+.Hamburger {
+  width: 70px;
+  stroke-width: 10;
+  margin: 10px;
+}
+
+.Bar1,
+.Bar2,
+.Bar3 {
+  transition-duration: 500ms;
+}
+
+.Hamburger:hover > .Bar1 {
+  transform: translateX(-100px);
+}
+.Hamburger:hover > .Bar2 {
+  transform: translateX(100px);
+}
+.Hamburger:hover > .Bar3 {
+  transform: translateX(100px);
+}

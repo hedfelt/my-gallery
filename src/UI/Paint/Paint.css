@@ -1,0 +1,11 @@
+.PaintBoard {
+  width: 80px;
+  stroke: black;
+  stroke-width: 1;
+  margin: 10px;
+  transition-duration: 500ms;
+}
+
+.PaintBoard:hover {
+  transform: rotate(45deg);
+}

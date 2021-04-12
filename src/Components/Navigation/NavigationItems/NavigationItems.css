@@ -1,0 +1,41 @@
+.NavItem {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.HamburgerIcon {
+  justify-content: center;
+}
+
+@keyframes iconLoad {
+  0% {
+    /* transform: translateY(-80px); */
+    opacity: 0;
+  }
+  50% {
+    /* transform: translateY(0px); */
+    opacity: 0.7;
+  }
+  100% {
+    /* transform: translateY(0px); */
+    opacity: 1;
+  }
+}
+
+.PaintBoardIcon {
+  display: flex;
+  justify-content: right;
+}
+
+.HamburgerIcon,
+.PaintBoardIcon {
+  cursor: pointer;
+  animation: iconLoad 2000ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.emptyBox {
+  width: 125px;
+}
