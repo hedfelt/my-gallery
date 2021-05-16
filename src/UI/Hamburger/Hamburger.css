@@ -1,21 +1,45 @@
 .Hamburger {
-  width: 70px;
-  stroke-width: 10;
+  width: 60px;
+
   margin: 10px;
 }
 
 .Bar1,
-.Bar2,
-.Bar3 {
+.Bar2 {
   transition-duration: 500ms;
 }
 
 .Hamburger:hover > .Bar1 {
-  transform: translateX(-100px);
+  animation: higherbarAnimation 1s;
 }
 .Hamburger:hover > .Bar2 {
-  transform: translateX(100px);
+  animation: lowerbarAnimation 1s;
 }
-.Hamburger:hover > .Bar3 {
-  transform: translateX(100px);
+
+@keyframes higherbarAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-7px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes lowerbarAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(7px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
 }

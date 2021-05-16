@@ -1,8 +1,9 @@
 .PaintBoard {
+  margin: 10px;
   width: 80px;
   stroke: black;
-  stroke-width: 1;
-  margin: 10px;
+  stroke-width: 10;
+  margin: 15px;
   transition-duration: 500ms;
 }
 

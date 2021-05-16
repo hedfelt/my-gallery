@@ -1,0 +1,93 @@
+/* .container1 {
+  /* display: flex;
+  justify-content: center; */
+
+.flex_grid {
+  padding-top: 200px;
+  background: #f2ebe6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+img,
+.image-size {
+  width: 400px;
+  padding: 2rem;
+}
+
+.art-image {
+  /* position: relative;
+  text-align: center;
+  color: transparent; */
+}
+
+/* @media (max-width: 400px) {
+  .flex_grid {
+    display: block;
+  }
+} */
+
+/* .innerwrapper:hover {
+  position: relative;
+  text-align: center;
+  color: black;
+} */
+
+/* .image_presented {
+  width: 400px;
+  height: 500px;
+  margin: 20px;
+} */
+
+/* .image_presented:hover {
+  opacity: 50%;
+} */
+
+/* .art_title {
+  position: absolute;
+  bottom: 70px;
+  right: 70px;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+} */
+
+/* .art_image {
+  padding: 10px;
+  width: 90%;
+  height: 90%;
+}
+
+.imagePresented {
+  height: 400px;
+  width: 300px;
+} */
+
+/* width: 90%;
+  height: 90%; */
+
+/* border-radius: 8px; */
+/* border: 1px solid #ddd; */
+/* border-radius: 4px; */
+/* padding: 5px; */
+/* width: 150px; */
+
+/* img:hover {
+  opacity: 50%;
+}
+
+.titleText {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  color: black;
+  font-size: 20px;
+}
+
+.imagePresented {
+  height: 400px;
+  width: 300px;
+} */

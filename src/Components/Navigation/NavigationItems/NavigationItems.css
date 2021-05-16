@@ -1,41 +1,177 @@
 .NavItem {
   display: flex;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 2;
+  height: 100px;
+  margin-top: 40px;
 }
 
-.HamburgerIcon {
-  justify-content: center;
+.NavItem-open {
+  display: flex;
+  justify-content: space-between;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 2;
+  height: 100px;
+  background-color: #f3eee8;
+  margin-top: 40px;
+}
+
+.name_artist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  line-height: 1;
+  width: 50px;
+  padding: 0 0 0 60px;
+  margin: 0;
+  font-size: 27px;
+
+  /* font-weight: 600; */
+}
+
+.menu-btn,
+.name_artist,
+.PaintBoardIcon {
+  cursor: pointer;
+  animation: iconLoad 3000ms ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  animation-delay: 0.5s;
 }
 
 @keyframes iconLoad {
   0% {
-    /* transform: translateY(-80px); */
     opacity: 0;
   }
   50% {
-    /* transform: translateY(0px); */
     opacity: 0.7;
   }
   100% {
-    /* transform: translateY(0px); */
     opacity: 1;
   }
 }
 
-.PaintBoardIcon {
+.menu-btn {
   display: flex;
-  justify-content: right;
-}
-
-.HamburgerIcon,
-.PaintBoardIcon {
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 60px;
+  padding-top: 10px;
+  margin-top: 10px;
   cursor: pointer;
-  animation: iconLoad 2000ms ease-in-out;
-  animation-fill-mode: forwards;
 }
 
-.emptyBox {
-  width: 125px;
+.upper_bar {
+  align-items: center;
+  position: absolute;
+  top: 35px;
+  width: 40px;
+  height: 4px;
+  background: black;
+  transition: all 0.5s ease-in-out;
 }
+
+.lower_bar {
+  align-items: center;
+  width: 40px;
+  height: 4px;
+  background: black;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn.open .upper_bar {
+  transform: rotate(45deg) translateX(9px) translateY(10px);
+  width: 40px;
+  height: 4px;
+}
+
+.menu-btn.open .lower_bar {
+  transform: rotate(-45deg);
+  width: 40px;
+  height: 4px;
+}
+
+/* hover effekt */
+
+/* .menu-btn.closed:hover > .upper_bar {
+  transition-delay: 100ms;
+  transition-timing-function: ease-in; 
+  : higherbarAnimation 1s;
+
+  transform: rotate(180deg);
+} */
+
+/* .menu-btn.closed:hover > .lower_bar {
+  transition-delay: 100ms;
+  transition-timing-function: ease-in;
+  animation: lowerbarAnimation 1s;
+  transform: rotate(180deg);
+} */
+
+/* .menu-btn.open:hover > .lower_bar {
+  transition-delay: 100ms;
+  transform: rotate(180deg);
+}
+
+.menu-btn.open:hover > .upper_bar {
+  transition-delay: 100ms;
+  transform: rotate(180deg);
+} */
+
+/* open animation */
+
+/* @keyframes higherbarAnimationOpen {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes lowerbarAnimationOpen {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+} */
+
+/* closed animation */
+/* 
+@keyframes higherbarAnimation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes lowerbarAnimation {
+  0% {
+    transform: translateZ(0px);
+  }
+
+  50% {
+    transform: translateZ(4px);
+  }
+
+  100% {
+    transform: translateZ(0px);
+  }
+} */
