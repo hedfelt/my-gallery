@@ -1,6 +1,5 @@
 import React from "react";
 import "./NavigationItems.css";
-import Paint from "../../../UI/Paint/Paint";
 import Hamburger from "../../../UI/Hamburger/Hamburger";
 import Cross from "../../../UI/Cross/Cross";
 import Daisy from "../../../UI/Daisy/Daisy";
