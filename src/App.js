@@ -1,41 +1,31 @@
-import React, { useState, useEffect } from "react";
-
 import "./App.css";
-import { throttle } from "lodash";
-import Contact from "./Components/Contact/Contact";
-import Header from "./Components/Header/Header";
-import Art from "./Components/Art/Art";
-import NavigationItems from "./Components/Navigation/NavigationItems/NavigationItems";
-import Parent from "./Components/Parent/Parent";
+import React, { useState, useEffect } from "react";
+import Contact from "./Components/Contact//Contact/Contact";
+import Home from "./Components/Home/Home";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import About from "./Components/About/About";
+import Artworks from "./Components/Artworks/Artworks";
+import SingleArtwork from "./Components/SingleArtwork/SingleArtwork";
+import Navigation from "./Components/Navigation/Navigation/Navigation";
+import Scrollbar from "smooth-scrollbar";
 
 function App() {
-  //scrollbarremover:
-  // let body = document.body;
-  // var scrollStop = function (callback) {
-  //   if (!callback || typeof callback !== "function") return;
-  //   var isScrolling;
-  //   window.addEventListener(
-  //     "scroll",
-  //     function (event) {
-  //       window.clearTimeout(isScrolling);
-  //       body.classList.add("scrolling");
-  //       isScrolling = setTimeout(function () {
-  //         callback();
-  //       }, 1300);
-  //     },
-  //     false
-  //   );
-  // };
+  Scrollbar.init(document.querySelector("#my-scrollbar"));
 
-  // scrollStop(function () {
-  //   body.classList.remove("scrolling");
-  // });
   return (
-    <div>
-      {/* <div className={scrolling ? "visibleBar" : "hiddenBar"}> */}
-      <Parent />
-
-      <Art />
+    <div className="test">
+      <Router>
+        <div className="scrolling_bar" />
+        <Navigation />
+        <Switch>
+          <Route component={Home} path="/" exact />
+          <Route component={About} path="/about" />
+          <Route component={Artworks} path="/artworks" />
+          <Route component={SingleArtwork} path="/post/:slug" />
+          <Route component={Contact} path="/contact" />
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,10 @@
+.navbar_stiky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.lock-screen {
+  overflow: hidden;
+}

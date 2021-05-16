@@ -1,0 +1,157 @@
+.registration_form {
+  padding: 30px;
+  border-radius: 5px;
+  width: 30em;
+  margin: 50px;
+  /* background-color: rgb(245, 230, 232);
+
+  border: 2px solid pink; */
+}
+
+.registration_form .title {
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #ebd0ce;
+  letter-spacing: 5px;
+  font-weight: 700;
+}
+
+.form_wrap {
+  margin-top: 35px;
+}
+
+.form_wrap .input_wrap {
+  margin-bottom: 15px;
+}
+
+.form_wrap .input_wrap label {
+  display: block;
+  margin-bottom: 3px;
+  color: black;
+}
+
+.form_wrap .input_grp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form_name {
+  margin-bottom: 2px;
+  color: #black;
+}
+
+.form_wrap .input_ugrp {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form_wrap .input_grp input {
+  width: 17em;
+}
+
+.input_wrap input {
+  width: 100%;
+  /* border-radius: 3px; */
+  /* border: 2px solid black; */
+  text-decoration: underline;
+  padding: 10px;
+  outline: none;
+  box-sizing: border-box;
+}
+::-webkit-input-placeholder {
+  text-decoration: underline;
+}
+
+.input_wrap input:focus {
+  outline: none;
+  border-color: #240370;
+  background-color: #e0d4fd;
+}
+
+button {
+  width: 100%;
+  background: #ebd0ce;
+  padding: 10px;
+  border: 0;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffd5d2;
+}
+
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  background-color: #ccc;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+#msg_box {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+#msg_box:focus {
+  outline: none;
+  border-color: #240370;
+  background-color: #e0d4fd;
+}
+
+#msg_box_invalid {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid red;
+  background-color: #fddddd;
+  border-radius: 3px;
+}
+
+#msg_box_invalid:focus {
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #ff8800;
+  background-color: #fbe8d2;
+}
+
+.error_text {
+  color: red;
+  font-size: 10px;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.no_error_text {
+  padding: 17px;
+  /* margin: 10px; */
+}
+
+.invalid input {
+  border: 1px solid red;
+  background-color: #fddddd;
+}
+
+.invalid input:focus {
+  border: 1px solid #ff8800;
+  background-color: #fbe8d2;
+}
+
+.error_container {
+  padding: 10px 0;
+}
+
+.noError_container {
+  padding: 10px 0;
+}

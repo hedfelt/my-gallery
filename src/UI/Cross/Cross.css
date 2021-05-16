@@ -7,6 +7,36 @@
   animation-fill-mode: forwards;
 }
 
+.cross_bar1 {
+  animation: crossAni 0.4s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.cross_bar2 {
+  animation: reversecrossAni 0.4s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes crossAni {
+  0% {
+    transform: rotate(0) translate(0px, 0px);
+  }
+
+  100% {
+    transform: rotate(45deg) translate(-10px, -40px);
+  }
+}
+
+@keyframes reversecrossAni {
+  0% {
+    transform: rotate(0) translate(0px, 0px);
+  }
+
+  100% {
+    transform: rotate(-45deg) translate(0px, 10px);
+  }
+}
+
 .CrossIcon1 {
   width: 70px;
   stroke: black;
@@ -17,14 +47,4 @@
 
 .CrossIcon1:hover {
   transform: rotate(90deg);
-}
-
-@keyframes crossAni {
-  0% {
-    transform: rotateZ(0);
-  }
-
-  100% {
-    transform: rotateZ(180deg);
-  }
 }

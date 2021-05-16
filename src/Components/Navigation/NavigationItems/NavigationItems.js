@@ -1,25 +1,31 @@
-import React, { useState } from "react";
-import classes from "./NavigationItems.css";
-import { Link } from "react-router-dom";
+import React from "react";
+import "./NavigationItems.css";
 import Paint from "../../../UI/Paint/Paint";
 import Hamburger from "../../../UI/Hamburger/Hamburger";
-import painty from "../../../Images/Painty.png";
 import Cross from "../../../UI/Cross/Cross";
-import Header from "../../Header/Header";
+import Daisy from "../../../UI/Daisy/Daisy";
 
-const NavigationItems = (props) => {
-  let iconSwitch = props.updated ? <Cross /> : <Hamburger />;
+const NavigationItems = ({ open, iconChange }) => {
+  let iconSwitch = open ? <Cross /> : <Hamburger />;
 
   return (
-    <nav className="NavItem">
-      <div className="emptyBox"></div>
+    <nav className={open ? "NavItem-open" : "NavItem"}>
+      <div className="name_artist">
+        <div>Hanne</div>
+        <div>Edfelt</div>
+      </div>
 
-      <div className="HamburgerIcon" onClick={props.iconChange}>
-        {iconSwitch}
+      <div
+        onClick={iconChange}
+        className={open ? "menu-btn open" : "menu-btn closed"}
+      >
+        <span className="upper_bar"></span>
+        <span className="lower_bar"></span>
       </div>
 
       <div className="PaintBoardIcon">
-        <Paint />
+        {/* <Paint /> */}
+        <Daisy daisyHeight="100px" daisyWidht="100px" />
       </div>
     </nav>
   );

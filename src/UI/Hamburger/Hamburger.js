@@ -5,38 +5,29 @@ const Hamburger = (props) => {
   return (
     <svg
       className="Hamburger"
-      // width="805"
-      // height="740"
-      viewBox="0 0 805 740"
+      width="70"
+      height="70"
+      viewBox="0 0 70 70"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect
+      <line
         className="Bar1"
-        x="220.5"
-        y="345.5"
-        width="360"
-        height="49"
-        rx="24.5"
+        x1="18"
+        y1="25.5"
+        x2="51"
+        y2="25.5"
         stroke="black"
+        stroke-width="3"
       />
-      <rect
+      <line
         className="Bar2"
-        x="102.5"
-        y="538.5"
-        width="599"
-        height="49"
-        rx="24.5"
+        x1="18"
+        y1="41.5"
+        x2="51"
+        y2="41.5"
         stroke="black"
-      />
-      <rect
-        className="Bar3"
-        x="102.5"
-        y="152.5"
-        width="599"
-        height="49"
-        rx="24.5"
-        stroke="black"
+        stroke-width="3"
       />
     </svg>
   );

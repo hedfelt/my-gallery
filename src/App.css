@@ -1,5 +1,14 @@
 body {
   font-family: "Playfair Display", serif;
+  background-color: #f3eee8;
+  /* max-width: 100%; */
+  overflow-x: hidden;
+}
+
+#my-scrollbar {
+  /* width: 100vw; */
+  height: 100vh;
+  overflow: auto;
 }
 
 /* 
@@ -9,41 +18,30 @@ pink: #EBD5F5
 blue:#CEEFF2
 yellow: #E9F2CE
 blush: #F2DDCE  */
-
-::-webkit-scrollbar {
-  width: 8px;
+/* ::-webkit-scrollbar {
+  width: 10px;
+  z-index: -1;
 }
-
-/* .scrolling::-webkit-scrollbar-track {
-  background-color: white;
-}
-
-.scrolling::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 10px;
-} */
 
 ::-webkit-scrollbar-track {
-  background-color: white;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  width: 8px;
-  background-color: #888;
+  background: transparent;
   border-radius: 10px;
-}
-
-/* hover */
-::-webkit-scrollbar:hover {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track:hover {
-  background-color: white;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  width: 8px;
-  background-color: dimgray;
-  border-radius: 10px;
+  background: #555;
 }
+.scrolling_bar {
+  z-index: 10;
+  position: absolute;
+
+  top: 0;
+  right: -5px;
+  height: 100vh;
+  width: 10px;
+  background-color: green;
+} */
