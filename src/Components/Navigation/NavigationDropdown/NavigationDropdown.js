@@ -1,11 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./NavigationDropdown.css";
+import { motion } from "framer-motion";
 
 const NavigationDropdown = ({ open, setOpen }) => {
   return (
     <div className={open ? "navigation_overlay" : "navigation_overlay-hidden"}>
-      <nav className="linkItems">
+      <motion.nav
+        className="linkItems"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 50 }}
+      >
         <NavLink
           onClick={() => setOpen(false)}
           className="linkItem home"
@@ -14,6 +19,7 @@ const NavigationDropdown = ({ open, setOpen }) => {
         >
           HOME
         </NavLink>
+
         <NavLink
           onClick={() => setOpen(false)}
           className="linkItem about"
@@ -35,7 +41,7 @@ const NavigationDropdown = ({ open, setOpen }) => {
         >
           CONTACT
         </NavLink>
-      </nav>
+      </motion.nav>
     </div>
   );
 };

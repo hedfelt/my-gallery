@@ -14,9 +14,8 @@ function App() {
   Scrollbar.init(document.querySelector("#my-scrollbar"));
 
   return (
-    <div className="test">
+    <div>
       <Router>
-        <div className="scrolling_bar" />
         <Navigation />
         <Switch>
           <Route component={Home} path="/" exact />
