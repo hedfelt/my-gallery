@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Daisy from "../../UI/Daisy/Daisy";
 import "./Home.css";
+import { motion } from "framer-motion";
 
 const Home = (props) => {
-  const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
+  // const [offsetY, setOffsetY] = useState(0);
+  // const handleScroll = () => setOffsetY(window.pageYOffset);
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
-  const daisyDimensions = [
-    { height: 100, width: 100 },
-    { height: 120, width: 120 },
-    { height: 140, width: 140 },
-    { height: 200, width: 200 },
-  ];
+  // const daisyDimensions = [
+  //   { height: 100, width: 100 },
+  //   { height: 120, width: 120 },
+  //   { height: 140, width: 140 },
+  //   { height: 200, width: 200 },
+  // ];
 
   return (
     <div className="Intro">
-      <div className="daisyOne">
+      {/* <div className="daisyOne">
         <Daisy
           daisyHeight={daisyDimensions[0].height}
           daisyWidht={daisyDimensions[0].width}
@@ -46,12 +47,13 @@ const Home = (props) => {
             daisyWidht={daisyDimensions[3].width}
           />
           <div className="stilk"></div>
-        </div>
-      </div>
+        </div> */}
 
-      <div className="author">Take a peek..</div>
-      <div className="pink_large_art">Art</div>
-      <div className="portfolio_title">Portfolio</div>
+      <div className="text_group">
+        <div className="peek_text"> Take a peek..</div>
+        <div className="pink_large_art_text">Art</div>
+        <div className="portfolio_text">Portfolio</div>
+      </div>
     </div>
   );
 };
