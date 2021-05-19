@@ -8,11 +8,9 @@ import About from "./Components/About/About";
 import Artworks from "./Components/Artworks/Artworks";
 import SingleArtwork from "./Components/SingleArtwork/SingleArtwork";
 import Navigation from "./Components/Navigation/Navigation/Navigation";
-import Scrollbar from "smooth-scrollbar";
+// import Scrollbar from "smooth-scrollbar";
 
 function App() {
-  Scrollbar.init(document.querySelector("#my-scrollbar"));
-
   return (
     <div>
       <Router>

@@ -4,6 +4,7 @@ import sanityClient from "../../client.js";
 import "./Artworks.css";
 import imageUrlBuilder from "@sanity/image-url";
 import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function Works() {
   const builder = imageUrlBuilder(sanityClient);
@@ -33,15 +34,20 @@ export default function Works() {
       .catch(console.error);
   }, []);
 
-  const controls = useAnimation();
+  //animasjon
+
+  const { ref, inView } = useInView();
+
+  const animation = useAnimation();
 
   useEffect(() => {
-    controls.start((i) => ({
-      opacity: 0,
-      x: 100,
-      transition: { delay: i * 0.3 },
-    }));
-  }, []);
+    if (inView) {
+      animation.start({
+        opacity: 1,
+      });
+    }
+    console.log("use effect hook, inView =", inView);
+  }, [inView]);
 
   return (
     <div className="flex_grid">
@@ -49,14 +55,12 @@ export default function Works() {
         postData.map((post, index) => (
           // <div className="innerwrapper">
           //   <Link to={"/post/" + post.slug.current} key={post.slug.current}>
+
           <motion.div
-            custom={0 + index}
-            animate={controls}
-            // animate={{ y: 100 + index * 100 }}
-            // initial="hidden"
-            // animate="visible"
-            // variants={variants}
-            // transition={{ duration: 2 }}
+            initial={{ opacity: 0.2 }}
+            animate={animation}
+            ref={ref}
+            // transition={{ duration: index * 0.5, delay: 0.5 * index }}
             className="art-image"
           >
             <img

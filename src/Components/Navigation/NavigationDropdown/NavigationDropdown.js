@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavigationDropdown.css";
-import { motion } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const NavigationDropdown = ({ open, setOpen }) => {
   return (
     <div className={open ? "navigation_overlay" : "navigation_overlay-hidden"}>
-      <motion.nav
+      <nav
         className="linkItems"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 50 }}
+
+        // initial={{ opacity: 0, y: -50 }}
+        // animate={{ opacity: 1, y: 50 }}
       >
         <NavLink
           onClick={() => setOpen(false)}
@@ -41,7 +43,7 @@ const NavigationDropdown = ({ open, setOpen }) => {
         >
           CONTACT
         </NavLink>
-      </motion.nav>
+      </nav>
     </div>
   );
 };
