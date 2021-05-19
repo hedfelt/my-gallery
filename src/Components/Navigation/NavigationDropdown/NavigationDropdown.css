@@ -2,11 +2,12 @@
   position: fixed;
   background-color: #f3eee8;
   margin: 10px 0 0 0;
-  padding: 0px 0 0 0;
-  height: 100%;
+  padding: 100px 0 0 0;
+  /* height: 100%; */
   width: 100%;
-  overflow: hidden;
   z-index: 2;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .navigation_overlay-hidden {
@@ -33,7 +34,11 @@
   padding: 30px;
 }
 
-/* .about {
+.home {
+  animation: homeAnimation 0.4s ease-out;
+}
+
+.about {
   animation: aboutAnimation 0.6s ease-out;
 }
 
@@ -43,6 +48,18 @@
 
 .contact {
   animation: contactAnimation 1s ease-out;
+}
+
+@keyframes homeAnimation {
+  0% {
+    transform: translateY(10px);
+    opacity: 0%;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 100%;
+  }
 }
 
 @keyframes aboutAnimation {
@@ -79,4 +96,4 @@
     transform: translateY(0px);
     opacity: 100%;
   }
-} */
+}
