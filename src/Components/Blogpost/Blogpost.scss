@@ -1,0 +1,19 @@
+.blogposts {
+  padding-top: 10rem;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+
+  &__title {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+  &__img {
+  }
+}

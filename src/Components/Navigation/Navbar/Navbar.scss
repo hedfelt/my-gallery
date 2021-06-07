@@ -1,0 +1,55 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 5rem;
+  padding-top: 2rem;
+  background: #f3f0f0;
+  &--open {
+    background: transparent;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+  }
+  &--closed {
+    background: #f3f0f0;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+  }
+
+  &__hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__upperbar,
+  &__lowerbar {
+    width: 2.5rem;
+    height: 0.2rem;
+    background: black;
+    margin: 0.3rem;
+  }
+}
+
+// .menu-btn.open .upper_bar {
+//   transform: rotate(45deg) translateX(9px) translateY(10px);
+// }
+
+// .menu-btn.open .lower_bar {
+//   transform: rotate(-45deg);
+// }
+
+// @media screen and (max-width: 768px) {
+//   .navbar {
+//     &__name,
+//     &__flower,
+//     &__hamburger--closed {
+//       width: 5rem;
+//       height: 5rem;
+//       transform: scale(0.7);
+//     }
+//   }
+// }

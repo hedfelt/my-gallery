@@ -5,10 +5,12 @@
   align-items: center;
   flex-wrap: wrap;
   flex: 1;
+  /* background-color: rgba(0, 0, 0, 0.308); */
 }
 
-img,
 .image-size {
   width: 25rem;
+  height: 30rem;
   padding: 2rem;
+  border-radius: 5rem;
 }
