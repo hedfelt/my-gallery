@@ -1,20 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import ContactForm from "../ContactForm/ContactForm";
-import "./Contact.css";
+import "./Contact.scss";
+import { motion } from "framer-motion";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import ContactIcons from "../ContactIcons/ContactIcons";
+import { OrangeLine } from "../../../UI/OrangeLine/OrangeLine";
+import FormModal from "./Modal/FormModal";
 
 const Contact = () => {
+  // intro animation
+  const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 1] };
+
+  const [clickedButton, setClickedButton] = useState(false);
   return (
-    <div className="contact_page">
-      <div className="hello_text">CONTACT ME</div>
-      <div className="contact_box">
-        <span className="contact_text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-          excepturi earum tempore ad, aliquam voluptatem veritatis saepe, autem
-          accusamus ducimus cum. Reprehenderit tenetur, earum odit hic quas enim
-          ipsum iure!
-        </span>
+    <div>
+      <div className="contact">
+        <div className="contact__group">
+          <motion.div
+            className="contact__get"
+            animate={{ x: 0, opacity: 1 }}
+            initial={{ x: -20, opacity: 0 }}
+            transition={{ duration: 1, ...transition }}
+          >
+            <div className="">GET IN</div>
+          </motion.div>
+          <motion.div
+            className="contact__touch"
+            animate={{ x: 0, opacity: 1 }}
+            initial={{ x: 20, opacity: 0 }}
+            transition={{ duration: 1, ...transition }}
+          >
+            <div className="">TOUCH</div>
+          </motion.div>
+          {/* <div className="contact__icons">
+            <ContactIcons />
+          </div> */}
+        </div>
+        <motion.div
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 2 }}
+          className="contact__form"
+        >
+          {/* contact form */}
+          <ContactForm
+            clickedForm={(clickedButton) => setClickedButton(!clickedButton)}
+          />
+        </motion.div>
       </div>
-      <ContactForm className="contact_form" />
+      <div className="contact__line">
+        <OrangeLine />
+      </div>
+      {/* //modal  if the form is valid and the button is clicked then the form is shown */}
+      {clickedButton && (
+        <FormModal clickedModal={() => setClickedButton(!clickedButton)} />
+      )}
     </div>
   );
 };

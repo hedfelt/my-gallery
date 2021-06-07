@@ -1,15 +1,15 @@
-import "./ContactForm.css";
-
+import { useState, useEffect } from "react";
+import "./ContactForm.scss";
 import useInput from "../../../hooks/use-input";
+import { motion } from "framer-motion";
 
-//SPØRSMÅL:
-//htmlFor??
+const ContactForm = (props) => {
+  const [formIsValid, setFormIsValid] = useState(false);
+  const [btnClicked, setBtnClicked] = useState(false);
 
-const ContactForm = () => {
-  //first name
   const {
     value: enteredName,
-    isValid: enteredNameIsValied,
+    isValid: enteredNameIsValid,
     hasError: nameInputHasError,
     valueChangeHandler: nameChangedHandler,
     inputBlurHandler: nameBlurHandler,
@@ -19,7 +19,7 @@ const ContactForm = () => {
   //last name
   const {
     value: enteredLastName,
-    isValid: enteredLastNameIsValied,
+    isValid: enteredLastNameIsValid,
     hasError: lastNameInputHasError,
     valueChangeHandler: lastNameChangedHandler,
     inputBlurHandler: lastNameBlurHandler,
@@ -38,7 +38,7 @@ const ContactForm = () => {
 
   const {
     value: enteredSubject,
-    isValid: enteredSubjectIsValied,
+    isValid: enteredSubjectIsValid,
     hasError: subjectInputHasError,
     valueChangeHandler: subjectChangedHandler,
     inputBlurHandler: subjectBlurHandler,
@@ -47,30 +47,40 @@ const ContactForm = () => {
 
   const {
     value: enteredMessage,
-    isValid: enteredMessageIsValied,
+    isValid: enteredMessageIsValid,
     hasError: messageInputHasError,
     valueChangeHandler: messageChangedHandler,
     inputBlurHandler: messageBlurHandler,
     reset: resetMessageInput,
   } = useInput((value) => value.trim() !== "");
 
-  //overfall form validity
-  let formIsValid = false;
-  if (
-    enteredNameIsValied &&
-    enteredEmailIsValid &&
-    enteredLastNameIsValied &&
-    enteredSubjectIsValied &&
-    enteredMessageIsValied
-  ) {
-    formIsValid = true;
-  }
+  //overall form validity
+  useEffect(() => {
+    if (
+      enteredNameIsValid &&
+      enteredEmailIsValid &&
+      enteredLastNameIsValid &&
+      enteredSubjectIsValid &&
+      enteredMessageIsValid
+    ) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  }, [
+    setFormIsValid,
+    enteredNameIsValid,
+    enteredEmailIsValid,
+    enteredLastNameIsValid,
+    enteredSubjectIsValid,
+    enteredMessageIsValid,
+  ]);
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
 
     //HVA MED DETTE??
-    if (!enteredNameIsValied) {
+    if (!enteredNameIsValid) {
       return;
     }
     console.log(
@@ -89,147 +99,152 @@ const ContactForm = () => {
 
   //changing input class to invalid
   const nameInputClasses = nameInputHasError
-    ? "input_wrap invalid"
-    : "input_wrap";
+    ? "form__input--invalid"
+    : "form__input";
 
   const lastNameInputClasses = lastNameInputHasError
-    ? "input_wrap invalid"
-    : "input_wrap";
+    ? "form__input--invalid"
+    : "form__input";
 
   const emailInputClasses = emailInputHasError
-    ? "input_wrap invalid"
-    : "input_wrap";
+    ? "form__input--invalid"
+    : "form__input";
 
   const subjectInputClasses = subjectInputHasError
-    ? "input_wrap invalid"
-    : "input_wrap";
+    ? "form__input--invalid"
+    : "form__input";
 
-  const messageInputId = messageInputHasError ? "msg_box_invalid" : "msg_box";
+  const messageInputId = messageInputHasError
+    ? "form__input--invalid"
+    : "form__input";
 
   return (
-    <div className="registration_form">
-      <form
-        // onSubmit={formSubmissionHandler}
-        // action="https://formsubmit.co/e9907d9bd8c5c81890e4672f847fc752"
-        method="POST"
-      >
-        <div className="form_wrap">
-          <div className="input_grp">
-            <label htmlFor="name" className="form_name">
-              NAME
-            </label>
-            <div className="input_ugrp">
-              <div className={nameInputClasses}>
-                <input
-                  type="text"
-                  name="name"
-                  onChange={nameChangedHandler}
-                  onBlur={nameBlurHandler}
-                  value={enteredName}
-                />
-                <label htmlFor="firstname">First Name</label>
-                {/* {nameInputHasError && (
-                    <p className="error_text">First name must not be empty</p>
-                  )} */}
+    <form className="form">
+      <div className="form__nameGroup">
+        <div>
+          <label htmlFor="firstname" className="form__label">
+            first name
+          </label>
+          <input
+            className={nameInputClasses}
+            type="text"
+            name="name"
+            onChange={nameChangedHandler}
+            onBlur={nameBlurHandler}
+            value={enteredName}
+          />
 
-                {nameInputHasError ? (
-                  <p className="error_text">First name must not be empty</p>
-                ) : (
-                  <div className="no_error_text"></div>
-                )}
-              </div>
-              <div className={lastNameInputClasses}>
-                <input
-                  type="text"
-                  name="lastName"
-                  onChange={lastNameChangedHandler}
-                  onBlur={lastNameBlurHandler}
-                  value={enteredLastName}
-                />
-                <label htmlFor="lastname">Last Name</label>
-                {/* {lastNameInputHasError && (
-                    <p tclassName="error_text">Last name must not be empty</p>
-                  )} */}
-
-                {lastNameInputHasError ? (
-                  <p className="error_text">Last name must not be empty</p>
-                ) : (
-                  <div className="no_error_text"></div>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className={emailInputClasses}>
-            <label htmlFor="email">EMAIL</label>
-
-            <input
-              type="email"
-              name="email"
-              onChange={emailChangeHandler}
-              onBlur={emailBlurHandler}
-              value={enteredEmail}
-            />
-
-            {/* {emailInputHasError && (
-                <p className="error_text">Please enter a valid email.</p>
-              )} */}
-
-            {emailInputHasError ? (
-              <p className="error_text">Email must not be empty</p>
-            ) : (
-              <div className="no_error_text"></div>
-            )}
-          </div>
-          <div className={subjectInputClasses}>
-            <label htmlFor="subject">SUBJECT</label>
-            <input
-              type="text"
-              name="subject"
-              onChange={subjectChangedHandler}
-              onBlur={subjectBlurHandler}
-              value={enteredSubject}
-            />
-            {/* <div
-                className={
-                  nameInputHasError ? "error_container" : "noError_container"
-                }
-              > */}
-            {subjectInputHasError ? (
-              <p className="error_text">Subject must not be empty</p>
-            ) : (
-              <div className="no_error_text"></div>
-            )}
-
-            {/* {nameInputHasError && (
-                <p className="error_text">Subject must not be empty</p>
-              )} */}
-            {/* </div> */}
-          </div>
-
-          <div className="input_wrap">
-            <label htmlFor="message">MESSAGE</label>
-            <textarea
-              id={messageInputId}
-              name="msg_box"
-              maxlenght="500"
-              onChange={messageChangedHandler}
-              onBlur={messageBlurHandler}
-              value={enteredMessage}
-            ></textarea>
-            {messageInputHasError ? (
-              <p className="error_text">Message must not be empty</p>
-            ) : (
-              <div className="no_error_text"></div>
-            )}
-          </div>
-          <div className="input_wrap">
-            <div className="btn_wrapper">
-              <button disabled={!formIsValid}>submit</button>
-            </div>
-          </div>
+          {nameInputHasError ? (
+            <p className="form__message--error">First name must not be empty</p>
+          ) : (
+            <div className="form__message"></div>
+          )}
         </div>
-      </form>
-    </div>
+        {/* LAST NAME */}
+        <div>
+          <label htmlFor="lastname" className="form__label">
+            last name
+          </label>
+
+          <input
+            className={lastNameInputClasses}
+            type="text"
+            name="lastName"
+            onChange={lastNameChangedHandler}
+            onBlur={lastNameBlurHandler}
+            value={enteredLastName}
+          />
+
+          {lastNameInputHasError ? (
+            <p className="form__message--error">Last name must not be empty</p>
+          ) : (
+            <div className="form__message"></div>
+          )}
+        </div>
+      </div>
+      <div>
+        <label htmlFor="email" className="form__label">
+          email
+        </label>
+        <input
+          className={emailInputClasses}
+          type="email"
+          name="email"
+          onChange={emailChangeHandler}
+          onBlur={emailBlurHandler}
+          value={enteredEmail}
+        />
+
+        {emailInputHasError ? (
+          <p className="form__message--error">Email must not be empty</p>
+        ) : (
+          <div className="form__message"></div>
+        )}
+      </div>
+      <div>
+        <label htmlFor="subject" className="form__label">
+          subject
+        </label>
+        <input
+          className={subjectInputClasses}
+          type="text"
+          name="subject"
+          onChange={subjectChangedHandler}
+          onBlur={subjectBlurHandler}
+          value={enteredSubject}
+        />
+
+        {subjectInputHasError ? (
+          <p className="form__message--error">Subject must not be empty</p>
+        ) : (
+          <div className="form__message"></div>
+        )}
+      </div>
+
+      {/* MESSAGEBOX */}
+
+      <div>
+        <label htmlFor="message" className="form__label">
+          message
+        </label>
+        <textarea
+          style={{
+            height: "10rem",
+            // width: "21.5rem",
+            margin: 0,
+            padding: "1rem",
+            position: "relative",
+            top: "0.15rem",
+          }}
+          className={messageInputId}
+          name="msg_box"
+          maxlenght="500"
+          onChange={messageChangedHandler}
+          onBlur={messageBlurHandler}
+          value={enteredMessage}
+        ></textarea>
+        {messageInputHasError ? (
+          <p className="form__message--error">Message must not be empty</p>
+        ) : (
+          <div className="form__message"></div>
+        )}
+      </div>
+      {/* BUTTON */}
+      <motion.button
+        className="form__button"
+        type="button"
+        // disabled={!formIsValid}
+        onClick={() => props.clickedForm()}
+        whileHover={{
+          scale: 1.1,
+        }}
+        whileTap={{ scale: 1 }}
+      >
+        SUBMIT
+      </motion.button>
+
+      {/* {formIsValid && btnClicked && <div>Hello</div>} */}
+    </form>
   );
 };
 

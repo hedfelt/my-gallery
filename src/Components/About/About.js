@@ -1,12 +1,9 @@
-import { divide } from "lodash";
+import { motion } from "framer-motion";
 import React from "react";
+import "./About.css";
 
 const About = () => {
-  return (
-    <div className="about">
-      <p>About Page</p>;
-    </div>
-  );
+  return <div className="about">Content coming soon</div>;
 };
 
 export default About;

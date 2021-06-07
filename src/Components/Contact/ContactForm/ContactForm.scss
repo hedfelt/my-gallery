@@ -1,0 +1,73 @@
+.form {
+  width: 90%; //width of form
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: grid;
+  align-items: center;
+  justify-items: stretch;
+  align-content: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+
+  @media screen and (max-width: 1000px) {
+    width: 70vw;
+  }
+
+  &__label {
+    background-color: #f3f0f0;
+    padding: 0.1rem 0.8rem;
+    position: relative;
+    top: 0.6rem;
+    right: -1rem;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &__message {
+    padding: 17px;
+    /* margin: 10px; */
+    &--error {
+      color: red;
+      font-size: 10px;
+      padding: 10px 0;
+      margin: 0;
+    }
+  }
+  &__nameGroup {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    column-gap: 10%;
+    justify-content: space-between;
+    @media screen and (max-width: 800px) {
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+      // grid-gap:
+    }
+  }
+  &__input {
+    border: 0.1rem solid black;
+    padding: 1rem;
+    background-color: transparent;
+    border-radius: 0.1rem;
+    width: 100%;
+
+    &--invalid {
+      border: 1px solid red;
+      background-color: #fddddd;
+      padding: 0.7rem;
+    }
+  }
+  &__button {
+    background-color: #efefef;
+    margin: auto;
+    width: 10rem;
+    padding: 0.8rem;
+    border: 0.1rem solid black;
+    border-radius: 2rem;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+  }
+}

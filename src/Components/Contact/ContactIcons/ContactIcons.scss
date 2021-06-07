@@ -1,0 +1,33 @@
+.contactIcons {
+  display: flex;
+  width: 15rem;
+  height: 2.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__border {
+    border: solid;
+    border-color: grey;
+    border-width: 0.05rem;
+    border-radius: 50rem;
+    // width: 15rem;
+    // height: 15rem;
+    width: 2.7rem;
+    height: 2.7rem;
+    align-content: center;
+    margin: 0.5rem;
+  }
+  &__facebook {
+    width: 1.2rem;
+    height: 1.2rem;
+    align-content: center;
+    position: relative;
+    top: -8.9rem;
+    left: 0.7rem;
+  }
+}
+
+.contactIcons__border:hover > .contactIcons__facebook {
+  color: #f7e8cb;
+}

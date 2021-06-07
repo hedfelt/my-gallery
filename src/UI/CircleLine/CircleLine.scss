@@ -1,0 +1,16 @@
+// .notVisible {
+//   stroke-width: 0;
+// }
+
+.visible {
+  stroke-width: 5;
+  stroke-dasharray: 1990;
+  stroke-dashoffset: 1990;
+  animation: dash 2s ease-in-out forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

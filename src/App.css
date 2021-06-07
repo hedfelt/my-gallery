@@ -1,12 +1,18 @@
 body {
-  font-family: "Playfair Display", serif;
-  background-color: #f3eee8;
+  /* font-family: "Playfair Display", serif; */
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Open Sans", sans-serif;
+
+  background-color: #f3f0f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* overflow: scroll; */
+  overflow-x: hidden;
 }
 
-#my-scrollbar {
+/* #my-scrollbar {
   height: 100vh;
-  /* overflow: auto; */
-}
+} */
 
 /* 
 colors: 
@@ -15,30 +21,25 @@ pink: #EBD5F5
 blue:#CEEFF2
 yellow: #E9F2CE
 blush: #F2DDCE  */
-/* ::-webkit-scrollbar {
+
+::-webkit-scrollbar {
   width: 10px;
-  z-index: -1;
 }
 
+/* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
   background: transparent;
-  border-radius: 10px;
 }
 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(117, 113, 113);
+  border-radius: 10px;
+
+  width: 10px;
+}
+
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-.scrolling_bar {
-  z-index: 10;
-  position: absolute;
-
-  top: 0;
-  right: -5px;
-  height: 100vh;
-  width: 10px;
-  background-color: green;
-} */
