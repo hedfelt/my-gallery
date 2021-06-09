@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/my-gallery/static/css/main.4ae742e5.chunk.css",
+    "main.js": "/my-gallery/static/js/main.ca43f1f6.chunk.js",
+    "main.js.map": "/my-gallery/static/js/main.ca43f1f6.chunk.js.map",
+    "runtime-main.js": "/my-gallery/static/js/runtime-main.fcd741e3.js",
+    "runtime-main.js.map": "/my-gallery/static/js/runtime-main.fcd741e3.js.map",
+    "static/js/2.094a6d63.chunk.js": "/my-gallery/static/js/2.094a6d63.chunk.js",
+    "static/js/2.094a6d63.chunk.js.map": "/my-gallery/static/js/2.094a6d63.chunk.js.map",
+    "index.html": "/my-gallery/index.html",
+    "static/css/main.4ae742e5.chunk.css.map": "/my-gallery/static/css/main.4ae742e5.chunk.css.map",
+    "static/js/2.094a6d63.chunk.js.LICENSE.txt": "/my-gallery/static/js/2.094a6d63.chunk.js.LICENSE.txt",
+    "static/media/Arttext.8f58fa6f.png": "/my-gallery/static/media/Arttext.8f58fa6f.png",
+    "static/media/slottnytt.5c6d32d2.png": "/my-gallery/static/media/slottnytt.5c6d32d2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fcd741e3.js",
+    "static/js/2.094a6d63.chunk.js",
+    "static/css/main.4ae742e5.chunk.css",
+    "static/js/main.ca43f1f6.chunk.js"
+  ]
+}
