@@ -25,15 +25,6 @@ const Navbar = ({ showModal, iconChange }) => {
     },
   };
 
-  const navbarOpacity = {
-    closed: {
-      opacity: 1,
-    },
-    opened: {
-      opacity: 0,
-    },
-  };
-
   return (
     <motion.nav
       className={showModal ? "navbar navbar--closed" : "navbar navbar--open"}

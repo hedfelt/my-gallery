@@ -18,34 +18,16 @@ import imageUrlBuilder from "@sanity/image-url";
 const FrontArt = () => {
   const [postData, setPost] = useState(null);
 
-  //scrolling
-
-  // large
-
-  // const animationlarge = useAnimation();
-
-  // const [contentReflarge, inViewlarge] = useInView({
-  //   triggerOnce: true,
-  //   rootMargin: "-300px",
-  // });
-
-  // useEffect(() => {
-  //   if (inViewlarge) {
-  //     animationlarge.start("visible");
-  //   }
-  // }, [animationlarge, inViewlarge]);
-
-  // one
-
   const animation = useAnimation();
   const [contentRef, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-300px",
+    rootMargin: "-500px",
   });
 
   useEffect(() => {
     if (inView) {
       animation.start("visible");
+    } else {
+      animation.start("hidden");
     }
   }, [animation, inView]);
 
@@ -54,7 +36,6 @@ const FrontArt = () => {
   const animationtwo = useAnimation();
 
   const [contentReftwo, inViewtwo] = useInView({
-    triggerOnce: true,
     rootMargin: "-300px",
   });
 
@@ -68,8 +49,7 @@ const FrontArt = () => {
   const animationthree = useAnimation();
 
   const [contentRefthree, inViewthree] = useInView({
-    triggerOnce: true,
-    rootMargin: "-300px",
+    rootMargin: "-100px",
   });
 
   useEffect(() => {
@@ -113,99 +93,69 @@ const FrontArt = () => {
   if (!postData) return <div>Loading...</div>;
 
   return (
-    <div className="images">
-      {/* <h2 className="images__title">
-        <motion.div
-          ref={contentRef}
-          animate={animation}
-          initial="hidden"
-          variants={{
-            visible: {
-              opacity: 1,
-              transition: { duration: 0.5 },
-            },
-            hidden: {
-              opacity: 0,
-              transition: { duration: 0.5 },
-            },
-          }}
-          className="images__number"
-        >
-          01
-        </motion.div>
-        <motion.div
-          ref={contentRef}
-          animate={animation}
-          initial="hidden"
-          variants={{
-            visible: {
-              opacity: 1,
-              transition: { duration: 0.5, delay: 0.2 },
-            },
-            hidden: {
-              opacity: 0,
-              transition: { duration: 0.5 },
-            },
-          }}
-          className="images__watercolors"
-        >
-          Watercolors
-        </motion.div>
-      </h2> */}
+    <div className="fronart">
+      <div className="frontart__containerOne">
+        <motion.img
+          className="frontart__imageOne"
+          src={urlFor(postData.mainImage).width(1000).height(1200)}
+          alt={postData.mainImage.alt}
+        />
+        {postData.title} <br /> Watercolor on paper
+      </div>
 
-      {/* large image */}
+      {/* DUO */}
 
-      <motion.img
-        className="images__large"
-        src={urlFor(postData.mainImage).width(1000).height(1200)}
-        alt={postData.mainImage.alt}
-      />
+      <div className="frontart__duo">
+        <div className="frontart__container">
+          <motion.div className="frontart__duoContainerOne">
+            <motion.img
+              src={urlFor(postData.mainImage).width(600).height(700)}
+              alt={postData.mainImage.alt}
+              className="frontart__duoImageOne"
+              ref={contentRef}
+              animate={animation}
+              initial="hidden"
+              variants={{
+                visible: {
+                  scale: 1,
+                  transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
+                },
+                hidden: { scale: 1.2 },
+              }}
+            />{" "}
+          </motion.div>
+          {postData.title} <br /> Watercolor on paper
+        </div>
+        <div className="frontart__container">
+          <motion.div className="frontart__duoContainerTwo">
+            <motion.img
+              src={urlFor(postData.mainImage).width(600).height(700)}
+              alt={postData.mainImage.alt}
+              className="frontart__duoImageTwo"
+              ref={contentRef}
+              animate={animation}
+              initial="hidden"
+              variants={{
+                visible: {
+                  scale: 1,
+                  transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
+                },
+                hidden: { scale: 1.2 },
+              }}
+            />
+          </motion.div>
+          {postData.title} <br /> Watercolor on paper
+        </div>
+      </div>
 
-      {/* images */}
+      {/* //row 3 */}
 
-      <div className="images__container">
+      <div className="frontart__container">
+        <div className="frontart__titleFour">
+          {postData.title} <br /> Watercolor on paper
+        </div>
         <motion.div
-          className="images__containerone"
-          ref={contentRef}
-          animate={animation}
-          initial="hidden"
-          variants={{
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
-            },
-            hidden: { opacity: 0, y: 72 },
-          }}
-        >
-          <img
-            src={urlFor(postData.mainImage).width(600).height(700)}
-            alt={postData.mainImage.alt}
-            className="images__one"
-          />
-        </motion.div>
-        <motion.div
-          className="images__containertwo"
-          ref={contentReftwo}
-          animate={animationtwo}
-          initial="hidden"
-          variants={{
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
-            },
-            hidden: { opacity: 0, y: 72 },
-          }}
-        >
-          <img
-            src={urlFor(postData.mainImage).width(600).height(700)}
-            alt={postData.mainImage.alt}
-            className="images__two"
-          />
-        </motion.div>
-        <motion.div
-          className="images__containerthree"
+          className="frontart__containerFour"
           ref={contentRefthree}
           animate={animationthree}
           initial="hidden"
@@ -221,9 +171,59 @@ const FrontArt = () => {
           <img
             src={urlFor(postData.mainImage).width(600).height(700)}
             alt={postData.mainImage.alt}
-            className="images__three"
+            className="frontart__imageFour"
           />
         </motion.div>
+      </div>
+
+      {/* //duo 2 */}
+
+      <div className="frontart__duoTwo">
+        <div className="frontart__containerFive">
+          <motion.div className="frontart__duoContainerFive">
+            <motion.img
+              src={urlFor(postData.mainImage).width(600).height(700)}
+              alt={postData.mainImage.alt}
+              className="frontart__imageFive"
+              ref={contentRef}
+              animate={animation}
+              initial="hidden"
+              variants={{
+                visible: {
+                  scale: 1,
+                  transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
+                },
+                hidden: { scale: 1.2 },
+              }}
+            />{" "}
+          </motion.div>
+          {postData.title} <br /> Watercolor on paper
+        </div>
+
+        <div className="frontart__containerSix">
+          <motion.div className="frontart__duoContainerSix">
+            <motion.img
+              src={urlFor(postData.mainImage).width(600).height(700)}
+              alt={postData.mainImage.alt}
+              className="frontart__imageSix"
+              ref={contentRef}
+              animate={animation}
+              initial="hidden"
+              variants={{
+                visible: {
+                  scale: 1,
+                  transition: { duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] },
+                },
+                hidden: { scale: 1.2 },
+              }}
+            />
+          </motion.div>
+          {postData.title} <br /> Watercolor on paper
+        </div>
+      </div>
+      <div className="frontart__colorblock">
+        <div className="frontart__colorblockOne"></div>
+        <div className="frontart__colorblockTwo"></div>
       </div>
     </div>
   );

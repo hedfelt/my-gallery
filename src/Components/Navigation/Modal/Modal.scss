@@ -1,5 +1,6 @@
 .lock-screen {
   overflow: hidden;
+  padding-right: 0.6rem;
 }
 
 .modal {
@@ -9,7 +10,7 @@
   height: 100%;
   width: 100%;
   background: #f3f0f0;
-  z-index: 100;
+  z-index: 2;
 
   &__links {
     display: flex;

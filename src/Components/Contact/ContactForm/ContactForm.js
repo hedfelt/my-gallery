@@ -16,7 +16,6 @@ const ContactForm = (props) => {
     reset: resetNameInput,
   } = useInput((value) => value.trim() !== "");
 
-  //last name
   const {
     value: enteredLastName,
     isValid: enteredLastNameIsValid,
@@ -79,7 +78,6 @@ const ContactForm = (props) => {
   const formSubmissionHandler = (event) => {
     event.preventDefault();
 
-    //HVA MED DETTE??
     if (!enteredNameIsValid) {
       return;
     }
@@ -97,7 +95,6 @@ const ContactForm = (props) => {
     resetMessageInput();
   };
 
-  //changing input class to invalid
   const nameInputClasses = nameInputHasError
     ? "form__input--invalid"
     : "form__input";
@@ -201,8 +198,6 @@ const ContactForm = (props) => {
         )}
       </div>
 
-      {/* MESSAGEBOX */}
-
       <div>
         <label htmlFor="message" className="form__label">
           message
@@ -210,11 +205,6 @@ const ContactForm = (props) => {
         <textarea
           style={{
             height: "10rem",
-            // width: "21.5rem",
-            margin: 0,
-            padding: "1rem",
-            position: "relative",
-            top: "0.15rem",
           }}
           className={messageInputId}
           name="msg_box"
@@ -233,7 +223,7 @@ const ContactForm = (props) => {
       <motion.button
         className="form__button"
         type="button"
-        // disabled={!formIsValid}
+        disabled={!formIsValid}
         onClick={() => props.clickedForm()}
         whileHover={{
           scale: 1.1,
@@ -242,8 +232,6 @@ const ContactForm = (props) => {
       >
         SUBMIT
       </motion.button>
-
-      {/* {formIsValid && btnClicked && <div>Hello</div>} */}
     </form>
   );
 };

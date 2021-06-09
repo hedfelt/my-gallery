@@ -1,0 +1,36 @@
+.flex_grid {
+  padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.imageBox {
+  margin: 2rem;
+  border-radius: 1rem;
+  width: 25rem;
+  height: 30rem;
+  display: inline-block;
+  overflow: hidden;
+  &__image {
+    display: block;
+    width: 25rem;
+    height: 30rem;
+    border-radius: 1rem;
+    &:hover {
+      transform: scale(1.1);
+      transition-duration: 0.3s;
+    }
+
+    &--notvisible {
+      opacity: 0;
+    }
+    &--visible {
+      opacity: 1;
+      transition-duration: 0.7s;
+      transition-timing-function: ease-in-out;
+    }
+  }
+}

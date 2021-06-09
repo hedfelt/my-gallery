@@ -25,25 +25,25 @@ function App() {
         setShowModal={setShowModal}
       />
       <Modal showModal={showModal} setShowModal={setShowModal} />
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <Switch location={location} key={location.pathname}>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route component={Artworks} path="/artworks" />
+          <Route component={SingleArtwork} path="/post/:slug" />
 
-      <Switch location={location} key={location.key}>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-
-        <Route component={Artworks} path="/artworks" />
-        <Route component={SingleArtwork} path="/post/:slug" />
-
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/blogpost">
-          <Blogpost />
-        </Route>
-      </Switch>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/blogpost">
+            <Blogpost />
+          </Route>
+        </Switch>
+      </AnimatePresence>
 
       <Footer />
     </>

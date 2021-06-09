@@ -1,17 +1,23 @@
 .artwork {
   display: flex;
   justify-content: space-between;
-  padding: 15rem;
+  padding: 5rem;
+  padding-bottom: 5rem;
 
   &__img {
-    width: 20rem;
-    height: 25rem;
-    padding: 2rem;
-    border-radius: 5rem;
+    width: 33rem;
+    height: 40rem;
+    // padding: 2rem;
+    border-radius: 0rem;
+  }
+  &__back {
+    color: black;
+    font-size: 2rem;
   }
 
-  // &__information {
-  // }
+  &__information {
+    height: 20rem;
+  }
 }
 
 .placeholder {

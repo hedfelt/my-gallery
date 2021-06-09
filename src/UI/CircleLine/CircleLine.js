@@ -12,14 +12,7 @@ const CircleLine = () => {
     threshold: 1.0,
   });
 
-  const circleLine = document.querySelector("notVisible");
-
-  const [visible, setVisible] = useState(false);
-
   const [isActive, setActive] = useState(false);
-
-  //   const handleToggle = () => {
-  //     setActive(!isActive);
 
   useEffect(() => {
     if (isVisible) setActive(true);

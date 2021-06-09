@@ -30,7 +30,7 @@ const FormModal = (props) => {
       className="formModal"
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
-      transition={{ delay: 1 }}
+      transition={{ delay: 0.4 }}
       onClick={() => props.clickedModal()}
     >
       <motion.div
@@ -47,21 +47,12 @@ const FormModal = (props) => {
             scale: 1.1,
           }}
           whileTap={{ scale: 0.9 }}
-          animate={{ y: 0 }}
-          initial={{ y: "-100vh" }}
-          transition={{ delay: 1.1 }}
           onClick={() => props.clickedModal()}
         >
           <GrClose className="formModal__icon" />
         </motion.button>
 
-        <motion.div
-          whileTap={{ scale: 0.9 }}
-          animate={{ y: 0 }}
-          initial={{ y: "-100vh" }}
-          transition={{ delay: 1.2 }}
-          className="formModal__text"
-        >
+        <motion.div whileTap={{ scale: 0.9 }} className="formModal__text">
           Thank You!
         </motion.div>
       </motion.div>
