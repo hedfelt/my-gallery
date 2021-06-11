@@ -16,9 +16,10 @@ export const Footer = () => {
         opacity: 1,
       });
     }
-  }, [inView]);
+  }, [inView, animation]);
   return (
     <motion.div
+      data-scroll-section
       initial={{ opacity: 0.2 }}
       animate={animation}
       transition={{ duration: 2 }}

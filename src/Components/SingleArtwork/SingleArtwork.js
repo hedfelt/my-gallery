@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import sanityClient from "../../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import "./SingleArtwork.scss";
-import { motion, AnimatePresence } from "framer-motion";
-import slott from "../../Images/slottnytt.png";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export default function SingleArtwork() {

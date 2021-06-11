@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 const ContactForm = (props) => {
   const [formIsValid, setFormIsValid] = useState(false);
-  const [btnClicked, setBtnClicked] = useState(false);
 
   const {
     value: enteredName,

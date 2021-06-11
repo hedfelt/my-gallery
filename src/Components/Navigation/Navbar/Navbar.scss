@@ -4,7 +4,7 @@
   justify-content: center;
   height: 5rem;
   padding-top: 2rem;
-  background: #f3f0f0;
+  // background: #f3f0f0;
   &--open {
     background: transparent;
     transition-duration: 0.7s;
@@ -17,6 +17,7 @@
   }
 
   &__hamburger {
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,23 +32,3 @@
     margin: 0.3rem;
   }
 }
-
-// .menu-btn.open .upper_bar {
-//   transform: rotate(45deg) translateX(9px) translateY(10px);
-// }
-
-// .menu-btn.open .lower_bar {
-//   transform: rotate(-45deg);
-// }
-
-// @media screen and (max-width: 768px) {
-//   .navbar {
-//     &__name,
-//     &__flower,
-//     &__hamburger--closed {
-//       width: 5rem;
-//       height: 5rem;
-//       transform: scale(0.7);
-//     }
-//   }
-// }

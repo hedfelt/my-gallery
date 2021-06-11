@@ -3,7 +3,6 @@ import sanityClient from "../../client.js";
 import BlockContent from "@sanity/block-content-to-react";
 
 import imageUrlBuilder from "@sanity/image-url";
-import { motion, useAnimation } from "framer-motion";
 import "./Blogpost.scss";
 
 const Blogpost = () => {
@@ -14,26 +13,6 @@ const Blogpost = () => {
   function urlFor(source) {
     return builder.image(source);
   }
-
-  //   useEffect(() => {
-  //     sanityClient
-  //       .fetch(
-  //         `*[_type == "blogPost"]{
-  //             title,
-  //             body,
-  //             slug,
-  //             mainImage{
-  //                 asset->{
-  //                         _id,
-  //                         url
-  //             }
-  //             alt
-  //           }
-  //         }`
-  //       )
-  //       .then((data) => setPostBLogPost(data))
-  //       .catch(console.error);
-  //   }, []);
 
   useEffect(() => {
     sanityClient

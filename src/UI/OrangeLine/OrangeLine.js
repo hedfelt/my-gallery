@@ -6,7 +6,6 @@ export const OrangeLine = () => {
     hidden: { pathLength: 0 },
     visible: {
       pathLength: 1,
-      //   fill: "rgba(0,0,0,1)",
 
       transition: {
         duration: 2,
@@ -28,7 +27,7 @@ export const OrangeLine = () => {
         initial="hidden"
         animate="visible"
         d="M6 6C26.3166 48.6946 66.3472 79.2822 101.051 109.958C118.026 124.962 135.006 138.56 154.688 149.877C170.973 159.241 188.886 166.274 206.504 172.697C228.641 180.766 251.506 186.022 270.088 201.303C316.093 239.136 316.079 309.781 292.973 360.458C269.349 412.271 222.97 449.757 177.248 481.254C138.63 507.857 99.2408 531.788 62.1723 560.702"
-        stroke="#FBA629"
+        stroke="#97B9B9"
         strokeWidth="10"
         stroke-linecap="round"
         stroke-linejoin="round"

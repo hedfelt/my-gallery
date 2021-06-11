@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import "./Contact.scss";
 import { motion } from "framer-motion";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import ContactIcons from "../ContactIcons/ContactIcons";
 import { OrangeLine } from "../../../UI/OrangeLine/OrangeLine";
 import FormModal from "./Modal/FormModal";
 

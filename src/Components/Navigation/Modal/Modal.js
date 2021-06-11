@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Modal.scss";
 import { motion, AnimatePresence } from "framer-motion";
-import Scrollbar from "smooth-scrollbar";
 
 const Modal = ({ showModal, setShowModal }) => {
   const modalRemove = () => {
@@ -21,7 +20,7 @@ const Modal = ({ showModal, setShowModal }) => {
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
-  }, []);
+  }, [showModal, setShowModal]);
 
   const homeVariants = {
     hidden: { opacity: 0, y: "7vh", rotate: -3 },

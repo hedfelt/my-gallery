@@ -1,21 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import "./FormModal.scss";
 import { GrClose } from "react-icons/gr";
 
 const FormModal = (props) => {
-  const boxVariants = {
-    hidden: {
-      y: "-10",
-      opacity: 0,
-    },
-    visible: {
-      y: "-40",
-      opacity: 1,
-      transition: { delay: 0.5 },
-    },
-  };
-
   useEffect(() => {
     const close = (e) => {
       if (e.keyCode === 27) {
@@ -24,7 +12,7 @@ const FormModal = (props) => {
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
-  }, []);
+  }, [props]);
   return (
     <motion.div
       className="formModal"

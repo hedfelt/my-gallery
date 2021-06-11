@@ -1,9 +1,9 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Contact from "./Components/Contact//Contact/Contact";
 import Home from "./Components/Home/Home";
 import { Route, Switch, useLocation } from "react-router-dom";
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import About from "./Components/About/About";
 import Artworks from "./Components/Artworks/Artworks";
@@ -12,20 +12,45 @@ import { Footer } from "./Components/Footer/Footer";
 import Modal from "./Components/Navigation/Modal/Modal";
 import Navbar from "./Components/Navigation/Navbar/Navbar";
 import Blogpost from "./Components/Blogpost/Blogpost";
+// import "./locomotive-scroll.css";
+import LocomotiveScroll from "locomotive-scroll";
+
+// const scroll = new LocomotiveScroll();
 
 function App() {
   const location = useLocation();
+
   const [showModal, setShowModal] = useState(false);
+
+  // useEffect(() => {
+  //   if (ref) {
+  //     new LocomotiveScroll({
+  //       el: ref.current,
+  //       smooth: true,
+  //     });
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   import("locomotive-scroll").then((locomotiveModule) => {
+  //     new locomotiveModule.default({
+  //       el: document.querySelector("[data-scroll-container]"),
+  //       smooth: true,
+  //     });
+  //   });
+  // }, []);
+
   return (
     <>
-      <Navbar
-        className="navbar__sticky"
-        iconChange={() => setShowModal(!showModal)}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
-      <Modal showModal={showModal} setShowModal={setShowModal} />
-      <AnimatePresence exitBeforeEnter initial={false}>
+      <div>
+        <Navbar
+          className="navbar__sticky"
+          iconChange={() => setShowModal(!showModal)}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+        <Modal showModal={showModal} setShowModal={setShowModal} />
+        {/* <AnimatePresence exitBeforeEnter initial={false}> */}
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
             <Home />
@@ -43,9 +68,10 @@ function App() {
             <Blogpost />
           </Route>
         </Switch>
-      </AnimatePresence>
+        {/* </AnimatePresence> */}
 
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }

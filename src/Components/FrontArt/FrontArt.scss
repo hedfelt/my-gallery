@@ -4,6 +4,7 @@
   width: 100vw;
   align-items: center;
   padding-top: 20rem;
+  height: 200rem;
 
   // IMAGE 1
   &__containerOne {
@@ -36,6 +37,7 @@
     align-items: center;
     justify-content: center;
   }
+
   &__duoContainerOne {
     display: inline-block;
     overflow: hidden;
@@ -118,6 +120,7 @@
     align-items: flex-end;
     font-size: 0.8rem;
     font-weight: 600;
+    width: 50vw;
   }
   &__duoContainerSix {
     display: inline-block;

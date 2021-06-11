@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import "./FrontArt.scss";
-import castle from "../../Images/slottnytt.png";
+// import castle from "../../Images/slottnytt.png";
 import {
   motion,
   useAnimation,
@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import sanityClient from "../../client.js";
 import { useInView } from "react-intersection-observer";
 import imageUrlBuilder from "@sanity/image-url";
+import LocomotiveScroll from "locomotive-scroll";
 
 const FrontArt = () => {
   const [postData, setPost] = useState(null);
@@ -68,49 +69,66 @@ const FrontArt = () => {
 
   const slug = "girl-in-sun";
 
+  // useEffect(() => {
+  //   sanityClient
+  //     .fetch(
+  //       `*[slug.current == $slug]{
+  //         title,
+  //         slug,
+  //         mainImage{
+  //           asset->{
+  //             _id,
+  //             url
+  //            }
+  //          },
+  //        body,
+  //       "name": author->name,
+  //       "authorImage": author->image
+  //      }`,
+  //       { slug }
+  //     )
+  //     .then((data) => setPost(data[0]))
+  //     .catch(console.error);
+  // }, [slug]);
+
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[slug.current == $slug]{
-          title,
-          slug,
-          mainImage{
-            asset->{
-              _id,
-              url
-             }
-           },
-         body,
-        "name": author->name,
-        "authorImage": author->image
-       }`,
-        { slug }
+        `*[_type == "post"]{
+      title,
+      slug,
+      mainImage{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      }
+    }`
       )
-      .then((data) => setPost(data[0]))
+      .then((data) => setPost(data))
       .catch(console.error);
-  }, [slug]);
+  }, []);
 
   if (!postData) return <div>Loading...</div>;
 
   return (
-    <div className="fronart">
+    <div className="frontart">
       <div className="frontart__containerOne">
         <motion.img
           className="frontart__imageOne"
-          src={urlFor(postData.mainImage).width(1000).height(1200)}
-          alt={postData.mainImage.alt}
+          src={urlFor(postData[4].mainImage).width(400).height(500)}
+          alt={postData[4].mainImage.alt}
         />
-        {postData.title} <br /> Watercolor on paper
+        {postData[4].title} <br /> Watercolor on paper
       </div>
-
       {/* DUO */}
-
       <div className="frontart__duo">
         <div className="frontart__container">
           <motion.div className="frontart__duoContainerOne">
             <motion.img
-              src={urlFor(postData.mainImage).width(600).height(700)}
-              alt={postData.mainImage.alt}
+              src={urlFor(postData[1].mainImage).width(800).height(1000)}
+              alt={postData[1].mainImage.alt}
               className="frontart__duoImageOne"
               ref={contentRef}
               animate={animation}
@@ -124,13 +142,13 @@ const FrontArt = () => {
               }}
             />{" "}
           </motion.div>
-          {postData.title} <br /> Watercolor on paper
+          {postData[1].title} <br /> Watercolor on paper
         </div>
         <div className="frontart__container">
           <motion.div className="frontart__duoContainerTwo">
             <motion.img
-              src={urlFor(postData.mainImage).width(600).height(700)}
-              alt={postData.mainImage.alt}
+              src={urlFor(postData[3].mainImage).width(400).height(500)}
+              alt={postData[3].mainImage.alt}
               className="frontart__duoImageTwo"
               ref={contentRef}
               animate={animation}
@@ -144,15 +162,13 @@ const FrontArt = () => {
               }}
             />
           </motion.div>
-          {postData.title} <br /> Watercolor on paper
+          {postData[3].title} <br /> Watercolor on paper
         </div>
       </div>
-
       {/* //row 3 */}
-
       <div className="frontart__container">
         <div className="frontart__titleFour">
-          {postData.title} <br /> Watercolor on paper
+          {postData[0].title} <br /> Watercolor on paper
         </div>
         <motion.div
           className="frontart__containerFour"
@@ -169,21 +185,19 @@ const FrontArt = () => {
           }}
         >
           <img
-            src={urlFor(postData.mainImage).width(600).height(700)}
-            alt={postData.mainImage.alt}
+            src={urlFor(postData[0].mainImage).width(400).height(500)}
+            alt={postData[0].mainImage.alt}
             className="frontart__imageFour"
           />
         </motion.div>
       </div>
-
       {/* //duo 2 */}
-
       <div className="frontart__duoTwo">
         <div className="frontart__containerFive">
           <motion.div className="frontart__duoContainerFive">
             <motion.img
-              src={urlFor(postData.mainImage).width(600).height(700)}
-              alt={postData.mainImage.alt}
+              src={urlFor(postData[5].mainImage).width(400).height(500)}
+              alt={postData[5].mainImage.alt}
               className="frontart__imageFive"
               ref={contentRef}
               animate={animation}
@@ -197,14 +211,14 @@ const FrontArt = () => {
               }}
             />{" "}
           </motion.div>
-          {postData.title} <br /> Watercolor on paper
+          {postData[5].title} <br /> Watercolor on paper
         </div>
 
         <div className="frontart__containerSix">
           <motion.div className="frontart__duoContainerSix">
             <motion.img
-              src={urlFor(postData.mainImage).width(600).height(700)}
-              alt={postData.mainImage.alt}
+              src={urlFor(postData[0].mainImage).width(400).height(500)}
+              alt={postData[0].mainImage.alt}
               className="frontart__imageSix"
               ref={contentRef}
               animate={animation}
@@ -218,7 +232,7 @@ const FrontArt = () => {
               }}
             />
           </motion.div>
-          {postData.title} <br /> Watercolor on paper
+          {postData[0].title} <br /> Watercolor on paper
         </div>
       </div>
       <div className="frontart__colorblock">

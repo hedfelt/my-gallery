@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import "./CircleLine.scss";
 
 import useElementOnScreen from "../../hooks/useElementOnScreen";
@@ -20,7 +18,6 @@ const CircleLine = () => {
 
   return (
     <div ref={containerRef}>
-      {/* <div> {isVisible ? "in view" : "not"}</div> */}
       <svg
         width="638"
         height="265"

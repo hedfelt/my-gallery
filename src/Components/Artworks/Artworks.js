@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import sanityClient from "../../client.js";
 import "./Artworks.scss";
 import imageUrlBuilder from "@sanity/image-url";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import useElementOnScreen from "../../hooks/useElementOnScreen";
 
 export default function Works() {
@@ -82,10 +82,6 @@ const SingleArtworks = ({ post, index }) => {
   useEffect(() => {
     if (isVisible) setActive(true);
   }, [isVisible]);
-
-  // const hoverScaleVariant = {
-  //   enter:
-  // }
 
   return (
     <motion.div className="imageBox">
