@@ -1,25 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Home.scss";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
-// import FrontArt from "../FrontArt/FrontArt";
-import PinkLine from "../../UI/PinkLine/PinkLine";
-import Line from "../../UI/Line/Line";
 import Art from "../../UI/Art/Art";
-import CircleLine from "../../UI/CircleLine/CircleLine";
-import paintStrokes from "./fargeklatt2.png";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import castle from "./slottnytt.png";
 import sanityClient from "../../client.js";
 import imageUrlBuilder from "@sanity/image-url";
-import Images from "../../Images/Images/Images";
 import useElementOnScreen from "../../hooks/useElementOnScreen";
 import CurvedText from "../../UI/CurvedText/CurvedText";
 
 const Home = () => {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.core.globals("ScrollTrigger", ScrollTrigger);
-
   const { scrollYProgress } = useViewportScroll();
   const { scrollY } = useViewportScroll();
 
@@ -55,36 +43,6 @@ const Home = () => {
     rootMargin: "0px",
     threshold: 0.1,
   });
-
-  useEffect(() => {
-    gsap.from(".home__art", {
-      scrollTrigger: {
-        trigger: ".home__art",
-        // scrub: true,
-        scrub: 0.5,
-        start: "top bottom",
-        end: "top top",
-      },
-      y: 200,
-      transformOrigin: "center",
-      ease: "power1",
-    });
-  }, []);
-
-  // useEffect(() => {
-  //   gsap.from(".home__duoImageTwo", {
-  //     scrollTrigger: {
-  //       trigger: ".home__duoImageTwo",
-  //       // scrub: true,
-  //       scrub: 0.5,
-  //       start: "top bottom",
-  //       end: "top top",
-  //     },
-  //     scale: 2,
-  //     transformOrigin: "center",
-  //     ease: "power1",
-  //   });
-  // }, []);
 
   const [postData, setPost] = useState(null);
   const builder = imageUrlBuilder(sanityClient);
@@ -156,37 +114,15 @@ const Home = () => {
         >
           PORTFOLIO
         </motion.div>
-        <motion.div
-          className="home__art"
-          // style={{ y: parallex }}
-        >
+        <motion.div className="home__art">
           <Art />
         </motion.div>
         <motion.div style={{ y: watercolor }} className="home__watercolors">
           Watercolors
         </motion.div>
-        {/* <motion.div className="home__circle">
-          <CircleLine />
-        </motion.div> */}
       </motion.div>
-      {/* <div className="home__colorblock">
-        <img src={castle} className="home__colorblockOne" />
-        <div className="home__colorblockTwo"></div>
-      </div> */}
-      {/* <div className="test_image_container" ref={scaleRef}>
-        <motion.img
-          className="test_image"
-          src={castle}
-          style={{ scale: isVisible ? initial : null }}
-        />
-      </div> */}
-      <div className="frontart">
-        {/* <div className="home__duoContainerTwo">
-          <motion.div className="home__duoImageTwo">
-            <Images />
-          </motion.div>
-        </div> */}
 
+      <div className="frontart">
         <div className="home__duo" ref={scaleRef}>
           <div className="home__wrapper">
             <div className="home__container">
@@ -212,14 +148,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* IMAGE 1 : slight scaling out */}
-      <motion.div
-        className="home__wrapperFour"
-        // ref={refFour}
-        // style={{
-        //   y: isVisibleFour ? parallexFour : parallexFour,
-        // }}
-      >
+      <motion.div className="home__wrapperFour">
         <div className="home__empty"></div>
         <div className="home__containerFour">
           <motion.img
@@ -232,7 +161,6 @@ const Home = () => {
           {postData[0].title} <br /> Watercolor on paper
         </div>
       </motion.div>
-      {/* /* IMAGE 2 * smaller image square, fit inside wp, faster scroll + scale out/ */}
       <motion.div className="home__wrapperFive">
         <div className="home__containerFive">
           <motion.img
@@ -245,8 +173,6 @@ const Home = () => {
           {postData[5].title} <br /> Watercolor on paper
         </div>
       </motion.div>
-
-      {/* IMAGE 3 large  */}
 
       <div className="home__outerwrapperLeft">
         <motion.div className="home__wrapperSix">
@@ -262,37 +188,6 @@ const Home = () => {
           </div>
         </motion.div>
       </div>
-      {/* 
-        
-        
-
-     
-    
-      <div className="frontart__duoTwo">
-        <div className="frontart__containerFive">
-          <div className="frontart__duoContainerFive">
-            <img
-              src={urlFor(postData[5].mainImage).width(400).height(500)}
-              alt={postData[5].mainImage.alt}
-              className="frontart__imageFive"
-            />
-          </div>
-          {postData[5].title} <br /> Watercolor on paper
-        </div>
-
-        <div className="frontart__containerSix">
-          <div className="frontart__duoContainerSix">
-            <img
-              src={urlFor(postData[0].mainImage).width(400).height(500)}
-              alt={postData[0].mainImage.alt}
-              className="frontart__imageSix"
-            />
-          </div>
-          {postData[0].title} <br /> Watercolor on paper
-        </div>
-      </div>{" "}
-      */}
-      {/* </div> */}
     </div>
   );
 };
