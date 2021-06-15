@@ -35,7 +35,7 @@ const Blogpost = () => {
   }, []);
 
   return (
-    <div className="blogposts">
+    <div className="blogposts" data-scroll-section>
       {postBlogPost &&
         postBlogPost.map((post, index) => (
           <div key={post.slug.current}>

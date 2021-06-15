@@ -59,7 +59,7 @@ export default function SingleArtwork() {
   };
 
   return (
-    <div className="artwork" key="hello">
+    <div className="artwork" key="hello" data-scroll-section>
       {/* back link */}
       <motion.div
         variants={backVariants}

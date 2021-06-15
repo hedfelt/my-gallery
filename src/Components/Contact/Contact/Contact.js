@@ -10,8 +10,9 @@ const Contact = () => {
   const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 1] };
 
   const [clickedButton, setClickedButton] = useState(false);
+
   return (
-    <div>
+    <div data-scroll-section>
       <div className="contact">
         <div className="contact__group">
           <motion.div

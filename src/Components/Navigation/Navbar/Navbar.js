@@ -27,6 +27,7 @@ const Navbar = ({ showModal, iconChange }) => {
 
   return (
     <motion.nav
+      data-scroll-section
       className={showModal ? "navbar navbar--closed" : "navbar navbar--open"}
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}

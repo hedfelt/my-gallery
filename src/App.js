@@ -12,33 +12,11 @@ import { Footer } from "./Components/Footer/Footer";
 import Modal from "./Components/Navigation/Modal/Modal";
 import Navbar from "./Components/Navigation/Navbar/Navbar";
 import Blogpost from "./Components/Blogpost/Blogpost";
-// import "./locomotive-scroll.css";
-import LocomotiveScroll from "locomotive-scroll";
-
-// const scroll = new LocomotiveScroll();
 
 function App() {
   const location = useLocation();
 
   const [showModal, setShowModal] = useState(false);
-
-  // useEffect(() => {
-  //   if (ref) {
-  //     new LocomotiveScroll({
-  //       el: ref.current,
-  //       smooth: true,
-  //     });
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   import("locomotive-scroll").then((locomotiveModule) => {
-  //     new locomotiveModule.default({
-  //       el: document.querySelector("[data-scroll-container]"),
-  //       smooth: true,
-  //     });
-  //   });
-  // }, []);
 
   return (
     <>
