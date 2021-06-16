@@ -17,6 +17,8 @@ import useElementOnScreen from "../../hooks/useElementOnScreen";
 import CurvedText from "../../UI/CurvedText/CurvedText";
 
 const Home = () => {
+  const [postData, setPost] = useState(null);
+
   gsap.registerPlugin(ScrollTrigger);
   gsap.core.globals("ScrollTrigger", ScrollTrigger);
 
@@ -24,8 +26,8 @@ const Home = () => {
     gsap.from(".home__art", {
       scrollTrigger: {
         trigger: ".home__art",
-        // scrub: true,
-        scrub: 0.5,
+        scrub: true,
+        // scrub: 0.5,
         start: "top bottom",
         end: "top top",
       },
@@ -33,24 +35,24 @@ const Home = () => {
       transformOrigin: "center",
       ease: "power1",
     });
-  }, []);
+  }, [postData]);
 
   useEffect(() => {
-    gsap.from(".home__duoImageTwo", {
+    gsap.from(".home__duoLeft", {
       scrollTrigger: {
-        trigger: ".home__duoImageTwo",
+        trigger: ".home__duoLeft",
         // scrub: true,
         scrub: 0.5,
         start: "top bottom",
         end: "top top",
       },
       scale: 2,
+
       transformOrigin: "center",
       ease: "power1",
     });
-  }, []);
+  }, [postData]);
 
-  const [postData, setPost] = useState(null);
   const builder = imageUrlBuilder(sanityClient);
 
   function urlFor(source) {
