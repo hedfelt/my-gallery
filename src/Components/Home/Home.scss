@@ -6,7 +6,6 @@
     align-items: center;
     justify-content: center;
     line-height: 0.75;
-    // font-size: 14vw;
     color: rgb(178, 147, 244);
   }
   &__vertical {
@@ -63,7 +62,7 @@
     color: rgb(212, 194, 189);
     position: relative;
     font-weight: 900;
-    top: -16rem;
+    top: -1rem;
     left: -2rem;
     // font-weight: bold;
 
@@ -91,145 +90,105 @@
     }
   }
 
-  &__pink {
-    position: absolute;
-    top: 17rem;
-    left: 0rem;
-    z-index: 1;
-  }
-  &__orange {
-    position: absolute;
-    top: -5rem;
-    right: 0rem;
-    z-index: -1;
-  }
-
-  &__circle {
-    position: absolute;
-    top: 67rem;
-    right: 29rem;
-    z-index: 1;
-  }
+  //first two images
 
   &__duo {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    top: -20rem;
   }
 
   &__wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
     text-align: center;
-    padding: 3rem 0rem;
   }
   &__container {
-    display: inline-block;
+    // display: inline-block;
     overflow: hidden;
-    // width: 50vw;
-    margin: 7rem 0rem 2rem 0rem;
-
-    // height: 40rem;
-
     height: 0;
-    width: 100%;
-    padding-bottom: 90%;
+    // width: 100%;
+    padding-bottom: 80%;
   }
 
   &__duoLeft {
-    display: block;
+    // display: block;
     width: 50vw;
-    // height: 90vh;
-    // height: 140vw;
-
-    // transform: scale(1.5);
-    // transition-duration: 0.7s;
-    // transition-timing-function: ease-in-out;
   }
   &__duoRight {
-    display: block;
+    // display: block;
     width: 50vw;
+  }
 
-    // transform: scale(1.2);
-    // transition-duration: 0.7s;
-    // transition-timing-function: ease-in-out;
+  &__lorem {
+    padding: 8rem 0rem;
+    font-size: 4vw;
+    text-align: center;
   }
-  // IMAGE FOUR
+
+  //grid
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  // IMAGE brown girl
   &__wrapperFour {
-    padding-top: 10rem;
-    font-size: 0.8rem;
-    font-weight: 600;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    grid-row: 1 / span 3;
+    grid-column: 2 / span 4;
   }
-  &__empty {
-    width: 40%;
-  }
+
   &__containerFour {
     width: 100%;
   }
   &__imageFour {
     width: 100%;
   }
-  &__titleFour {
-    margin: 1rem;
-    width: 40%;
-  }
-  // IMAGE FIVE
+  // &__titleFour {
+  //   margin: 1rem;
+  //   width: 40%;
+  // }
+
+  // IMAGE cying girl
   &__wrapperFive {
-    padding-top: 10rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // font-size: 0.8rem;
+    grid-row: 3 / span 3;
+    grid-column: 1 / span 3;
   }
 
   &__containerFive {
-    display: inline-block;
+    // display: inline-block;
     overflow: hidden;
-    margin: 7rem 0rem 2rem 0rem;
     height: 0;
-    width: 45%;
-    padding-bottom: 40%;
+    width: 100%;
+    padding-bottom: 100%;
   }
 
   &__imageFive {
-    display: block;
+    // display: block;
     width: 100%;
   }
   &__title {
-    margin: 1rem 0rem;
+    // margin: 1rem 0rem;
   }
-  // IMAGE SIX
+  // IMAGE castle
 
-  &__outerwrapperLeft {
-    display: flex;
-    justify-content: flex-end;
-    width: 100vw;
-  }
   &__wrapperSix {
-    // width: 100vw;
-
-    padding-top: 10rem;
     font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    grid-row: 4 / span 3;
+    grid-column: 2 / span 5;
+    z-index: -1;
   }
 
   &__containerSix {
-    width: 70vw;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
   }
   &__imageSix {
-    // width: 100%;
-    width: 70vw;
+    display: block;
+    width: 100%;
   }
 }
