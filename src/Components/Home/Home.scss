@@ -91,31 +91,14 @@
   }
 
   //first two images
-
   &__duo {
     display: flex;
+    width: 100vw;
+    text-align: center;
   }
-
   &__wrapper {
     display: flex;
     flex-direction: column;
-    text-align: center;
-  }
-  &__container {
-    // display: inline-block;
-    overflow: hidden;
-    height: 0;
-    // width: 100%;
-    padding-bottom: 80%;
-  }
-
-  &__duoLeft {
-    // display: block;
-    width: 50vw;
-  }
-  &__duoRight {
-    // display: block;
-    width: 50vw;
   }
 
   &__lorem {
