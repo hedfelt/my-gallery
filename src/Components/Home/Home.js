@@ -9,6 +9,7 @@ import CircleLine from "../../UI/CircleLine/CircleLine";
 import paintStrokes from "./fargeklatt2.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import castle from "./slottnytt.png";
 import sanityClient from "../../client.js";
 import imageUrlBuilder from "@sanity/image-url";
@@ -20,53 +21,63 @@ const Home = () => {
   const [postData, setPost] = useState(null);
 
   gsap.registerPlugin(ScrollTrigger);
-  gsap.core.globals("ScrollTrigger", ScrollTrigger);
   const ref = useRef(null);
   const refSix = useRef(null);
+  const refSixImage = useRef(null);
 
   useEffect(() => {
-    gsap.from(".home__duoLeft", {
-      scrollTrigger: {
-        trigger: ref.current,
-        scrub: true,
-        start: "top bottom",
-        end: "top top",
-      },
-      scale: 1.5,
-      ease: "power1",
-    });
-    gsap.from(".home__duoRight", {
-      scrollTrigger: {
-        trigger: ".home__duoRight",
-        scrub: true,
-        start: "top bottom",
-        end: "top top",
-      },
-      scale: 1.5,
-      ease: "power1",
-    });
-    gsap.from(".home__wrapperFive", {
-      scrollTrigger: {
-        trigger: ".home__wrapperFive",
-        scrub: true,
-        start: "top bottom",
-        end: "top top",
-      },
-      y: 200,
-      ease: "power1",
-    });
+    // gsap.from(".home__duoLeft", {
+    //   scrollTrigger: {
+    //     trigger: ref.current,
+    //     scrub: true,
+    //     start: "top bottom",
+    //     end: "top top",
+    //   },
+    //   scale: 1.5,
+    //   ease: "power1",
+    // });
+    // gsap.from(".home__duoRight", {
+    //   scrollTrigger: {
+    //     trigger: ".home__duoRight",
+    //     scrub: true,
+    //     start: "top bottom",
+    //     end: "top top",
+    //   },
+    //   scale: 1.5,
+    //   ease: "power1",
+    // });
+    // gsap.from(".home__lorem", {
+    //   scrollTrigger: {
+    //     trigger: ".home__lorem",
+    //     scrub: true,
+    //     start: "top bottom",
+    //     end: "top top",
+    //   },
+    //   scale: 1.5,
+    //   ease: "power1",
+    // });
+    // gsap.from(".home__wrapperFive", {
+    //   scrollTrigger: {
+    //     trigger: ".home__wrapperFive",
+    //     scrub: true,
+    //     start: "top bottom",
+    //     end: "top top",
+    //   },
+    //   y: 200,
+    //   ease: "power1",
+    // });
 
-    gsap.from(".home__imageFive", {
-      scrollTrigger: {
-        trigger: ".home__imageFive",
-        scrub: true,
-        start: "top bottom",
-        end: "top top",
-      },
-      scale: 1.2,
-      ease: "power1",
-    });
-    gsap.from(".home__imageSix", {
+    // gsap.from(".home__imageFive", {
+    //   scrollTrigger: {
+    //     trigger: ".home__imageFive",
+    //     scrub: true,
+    //     start: "top bottom",
+    //     end: "top top",
+    //   },
+    //   scale: 1.2,
+    //   ease: "power1",
+    // });
+    gsap.to(refSixImage.current, {
       scrollTrigger: {
         trigger: refSix.current,
         scrub: true,
@@ -76,7 +87,7 @@ const Home = () => {
       scale: 1.2,
       ease: "power1",
     });
-  }, [postData, ref, refSix]);
+  }, [postData]);
 
   const builder = imageUrlBuilder(sanityClient);
 
@@ -194,7 +205,6 @@ const Home = () => {
             {postData[0].title} <br /> Watercolor on paper
           </div>
         </div>
-
         <div className="home__wrapperFive">
           <div className="home__containerFive">
             <img
@@ -208,13 +218,13 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="home__wrapperSix">
+        <div className="home__wrapperSix" ref={refSix}>
           <div className="home__containerSix">
             <img
+              ref={refSixImage}
               src={urlFor(postData[2].mainImage).width(1200).height(1400)}
               alt={postData[2].mainImage.alt}
               className="home__imageSix"
-              ref={refSix}
             />
           </div>
           <div className="home__title">
