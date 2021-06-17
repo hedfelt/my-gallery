@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.scss";
 
 import { motion } from "framer-motion";
+import NavbarIcon from "../../../UI/NavbarIcon/NavbarIcon";
 
 const Navbar = ({ showModal, iconChange }) => {
   const top = {
@@ -27,12 +28,14 @@ const Navbar = ({ showModal, iconChange }) => {
 
   return (
     <motion.nav
-      data-scroll-section
       className={showModal ? "navbar navbar--closed" : "navbar navbar--open"}
       animate={{ opacity: 1 }}
       initial={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
+      <div className="navbar__icon">
+        <NavbarIcon />
+      </div>
       <motion.div className="navbar__hamburger" onClick={iconChange}>
         <motion.div
           className="navbar__upperbar"
@@ -47,6 +50,11 @@ const Navbar = ({ showModal, iconChange }) => {
           animate={showModal ? "opened" : "closed"}
         ></motion.div>
       </motion.div>
+      <div className="navbar__name">
+        Hanne
+        <br />
+        Edfelt
+      </div>
     </motion.nav>
   );
 };

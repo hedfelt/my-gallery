@@ -1,25 +1,16 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import "./FrontArt.scss";
-import {
-  motion,
-  useAnimation,
-  useViewportScroll,
-  useTransform,
-  useSpring,
-  useElementScroll,
-} from "framer-motion";
+
 import sanityClient from "../../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 
-import { Link } from "react-router-dom";
-import { useInView } from "react-intersection-observer";
-import LocomotiveScroll from "locomotive-scroll";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export const FrontArt = (props) => {
+export const FrontArt = ({ postData, scroll }) => {
   gsap.registerPlugin(ScrollTrigger);
   const ref = useRef(null);
+
   const builder = imageUrlBuilder(sanityClient);
 
   function urlFor(source) {
@@ -36,12 +27,12 @@ export const FrontArt = (props) => {
           end: "top top",
         },
         scale: 0.9,
-        y: props.scroll,
+        y: scroll,
         ease: "power1",
       });
     },
 
-    [props.postData],
+    [postData],
     ref
   );
 
@@ -60,15 +51,15 @@ export const FrontArt = (props) => {
   }, []);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className="frontart">
       <div className="frontart__container">
         <img
-          src={urlFor(props.postData.mainImage).width(1000).height(1200)}
-          alt={props.postData.mainImage.alt}
+          src={urlFor(postData.mainImage).width(1000).height(1200)}
+          alt={postData.mainImage.alt}
           className="frontart__image"
         />
       </div>
-      {props.postData.title} <br /> Watercolor and pen on paper
+      {postData.title} <br /> Watercolor and pen on paper
     </div>
   );
 };

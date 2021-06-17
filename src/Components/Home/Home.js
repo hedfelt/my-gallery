@@ -1,19 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Home.scss";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import FrontArt from "../FrontArt/FrontArt";
-import PinkLine from "../../UI/PinkLine/PinkLine";
-import Line from "../../UI/Line/Line";
-import Art from "../../UI/Art/Art";
-import CircleLine from "../../UI/CircleLine/CircleLine";
-import paintStrokes from "./fargeklatt2.png";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import castle from "./slottnytt.png";
+import Art from "../../UI/Art/Art";
+
 import sanityClient from "../../client.js";
 import imageUrlBuilder from "@sanity/image-url";
-import Images from "../../Images/Images/Images";
 import useElementOnScreen from "../../hooks/useElementOnScreen";
 import CurvedText from "../../UI/CurvedText/CurvedText";
 
@@ -69,16 +62,6 @@ const Home = () => {
       </div>
 
       <div className="home__duo">
-        {/* <div className="home__wrapper">
-          <div className="home__container">
-            <img
-              ref={ref}
-              src={urlFor(postData[1].mainImage).width(1000).height(1200)}
-              alt={postData[1].mainImage.alt}
-              className="home__duoLeft"
-            />
-          {postData[1].title} <br /> Watercolor and pen on paper
-        </div> */}
         <div className="frontart__wrapper">
           <FrontArt postData={postData[1]} />
         </div>
@@ -94,36 +77,10 @@ const Home = () => {
         Rerum, libero!
       </div>
 
-      {/* //grid */}
       <div className="home__grid">
-        {/* <div className="home__wrapperFour">
-          <div className="home__containerFour">
-            <img
-              src={urlFor(postData[0].mainImage).width(1400).height(1600)}
-              alt={postData[0].mainImage.alt}
-              className="home__imageFour"
-            />
-          </div>
-          <div className="home__titleFour">
-            {postData[0].title} <br /> Watercolor on paper
-          </div>
-        </div> */}
-
         <div className="home__wrapperFour">
           <FrontArt postData={postData[0]} />
         </div>
-        {/* <div className="home__wrapperFive">
-          <div className="home__containerFive">
-            <img
-              src={urlFor(postData[5].mainImage).width(1000).height(1200)}
-              alt={postData[5].mainImage.alt}
-              className="home__imageFive"
-            />
-          </div>
-          <div className="home__title">
-            {postData[5].title} <br /> Watercolor on paper
-          </div>
-        </div> */}
 
         <div className="home__wrapperFive">
           <FrontArt postData={postData[5]} scroll={-200} />
@@ -131,20 +88,6 @@ const Home = () => {
         <div className="home__wrapperSix">
           <FrontArt postData={postData[2]} />
         </div>
-
-        {/* <div className="home__wrapperSix">
-          <div className="home__containerSix">
-            <img
-              src={urlFor(postData[2].mainImage).width(1200).height(1400)}
-              alt={postData[2].mainImage.alt}
-              className="home__imageSix"
-            />
-          </div>
-          <div className="home__title">
-            {postData[2].title} <br /> Watercolor on paper
-          </div>
-        </div> */}
-        {/* </div> */}
       </div>
     </div>
   );
