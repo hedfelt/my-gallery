@@ -33,9 +33,9 @@ const Navbar = ({ showModal, iconChange }) => {
       initial={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="navbar__icon">
+      <motion.div className="navbar__icon">
         <NavbarIcon />
-      </div>
+      </motion.div>
       <motion.div className="navbar__hamburger" onClick={iconChange}>
         <motion.div
           className="navbar__upperbar"

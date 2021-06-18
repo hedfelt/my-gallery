@@ -2,15 +2,36 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Home.scss";
 import { motion } from "framer-motion";
 import FrontArt from "../FrontArt/FrontArt";
+import useElementOnScreen from "../../hooks/useElementOnScreen";
 
 import Art from "../../UI/Art/Art";
 
 import sanityClient from "../../client.js";
 import imageUrlBuilder from "@sanity/image-url";
-import useElementOnScreen from "../../hooks/useElementOnScreen";
+
 import CurvedText from "../../UI/CurvedText/CurvedText";
 
 const Home = () => {
+  const [loremRef, loremIsVisible] = useElementOnScreen({
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.3,
+  });
+
+  const loremVariants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1 },
+    },
+    hidden: { opacity: 0, y: 40 },
+  };
+
+  // const [isActive, setActive] = useState(false);
+
+  // useEffect(() => {
+  //   if (isVisible) setActive(true);
+  // }, [isVisible]);
   const [postData, setPost] = useState(null);
 
   const builder = imageUrlBuilder(sanityClient);
@@ -45,6 +66,7 @@ const Home = () => {
       <div className="home__textgroup">
         <div className="home__hanne">HANNE</div>
         <div className="home__edfelt">
+          {/* EDFELT */}
           <CurvedText />
         </div>
         <motion.div
@@ -63,19 +85,20 @@ const Home = () => {
 
       <div className="home__duo">
         <div className="frontart__wrapper">
-          <FrontArt postData={postData[1]} />
-        </div>
-
-        <div className="frontart__wrapper">
           <FrontArt postData={postData[3]} />
         </div>
       </div>
 
-      <div className="home__lorem">
+      <motion.div
+        className="home__lorem"
+        ref={loremRef}
+        variants={loremVariants}
+        animate={loremIsVisible ? "visible" : "hidden"}
+      >
         Lorem ipsum <br /> sit amet consectetur adipisicing elit.
         <br />
         Rerum, libero!
-      </div>
+      </motion.div>
 
       <div className="home__grid">
         <div className="home__wrapperFour">

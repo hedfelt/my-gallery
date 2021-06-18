@@ -128,7 +128,7 @@ const Modal = ({ showModal, setShowModal }) => {
         >
           <nav className="modal__links" onClick={modalRemove}>
             <motion.div
-              className="modal__link"
+              className="modal__link modal__home"
               variants={homeVariants}
               initial="hidden"
               animate="visible"
@@ -136,18 +136,20 @@ const Modal = ({ showModal, setShowModal }) => {
               whileHover="hover"
             >
               <NavLink
-                // exit="hidden"
                 onClick={modalRemove}
                 className="modal__link"
                 to="/"
                 exact
+                activeStyle={{
+                  color: "rgb(178, 147, 244)",
+                }}
               >
                 HOME
               </NavLink>
             </motion.div>
 
             <motion.div
-              className="modal__link"
+              className="modal__link "
               variants={artworksVariants}
               initial="hidden"
               animate="visible"
@@ -158,6 +160,7 @@ const Modal = ({ showModal, setShowModal }) => {
                 onClick={modalRemove}
                 className="modal__link"
                 to="/Artworks"
+                activeStyle={{ color: "rgb(178, 147, 244)" }}
               >
                 ARTWORKS
               </NavLink>
@@ -175,6 +178,7 @@ const Modal = ({ showModal, setShowModal }) => {
                 onClick={modalRemove}
                 className="modal__link"
                 to="/blogpost"
+                activeStyle={{ color: "rgb(178, 147, 244)" }}
               >
                 BLOGPOST
               </NavLink>
@@ -193,8 +197,9 @@ const Modal = ({ showModal, setShowModal }) => {
                   onClick={modalRemove}
                   className="modal__link"
                   to="/contact"
+                  activeStyle={{ color: "rgb(178, 147, 244)" }}
                 >
-                  CONTACT
+                  contact
                 </NavLink>
               </motion.div>
               <motion.div
@@ -209,8 +214,9 @@ const Modal = ({ showModal, setShowModal }) => {
                   onClick={modalRemove}
                   className="modal__link"
                   to="/about"
+                  activeStyle={{ color: "rgb(178, 147, 244)" }}
                 >
-                  ABOUT
+                  about
                 </NavLink>
               </motion.div>
             </div>

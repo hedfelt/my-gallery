@@ -20,7 +20,6 @@ const NavbarIcon = () => {
   };
   return (
     <motion.svg
-      initial="rest"
       whileHover="hover"
       animate="rest"
       viewBox="0 0 179 176"

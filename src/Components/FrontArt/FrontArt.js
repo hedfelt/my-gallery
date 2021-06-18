@@ -24,9 +24,9 @@ export const FrontArt = ({ postData, scroll }) => {
           trigger: ref.current,
           scrub: true,
           start: "top bottom",
-          end: "top top",
+          end: "bottom top",
         },
-        scale: 0.9,
+        scale: 1,
         y: scroll,
         ease: "power1",
       });
@@ -51,15 +51,17 @@ export const FrontArt = ({ postData, scroll }) => {
   }, []);
 
   return (
-    <div ref={ref} className="frontart">
+    <div className="frontart">
       <div className="frontart__container">
         <img
-          src={urlFor(postData.mainImage).width(1000).height(1200)}
+          src={urlFor(postData.mainImage).width(1200).height(1400)}
           alt={postData.mainImage.alt}
           className="frontart__image"
+          ref={ref}
         />
       </div>
-      {postData.title} <br /> Watercolor and pen on paper
+      .<div className="frontart__title">{postData.title}</div>
+      <div className="frontart__mediums">Watercolor and pen on paper</div>
     </div>
   );
 };

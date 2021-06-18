@@ -5,14 +5,17 @@
 
   height: 5rem;
   padding-top: 2rem;
-  // background: #f3f0f0;
+  position: fixed;
   &__name {
     text-align: center;
     font-size: 2vw;
     padding: 0rem 2rem;
     color: #d4c2bd;
+    z-index: 1000;
   }
+
   &__icon {
+    z-index: 1000;
     width: 3vw;
     padding: 0.5rem 2rem;
   }
@@ -22,7 +25,8 @@
     transition-timing-function: ease-in-out;
   }
   &--closed {
-    background: #f3f0f0;
+    background-color: #f5efe8;
+
     transition-duration: 0.7s;
     transition-timing-function: ease-in-out;
   }

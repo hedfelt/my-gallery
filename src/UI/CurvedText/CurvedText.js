@@ -3,7 +3,7 @@ import React from "react";
 const CurvedText = () => {
   return (
     <svg
-      width="45vw"
+      width="40vw"
       viewBox="0 0 304 91"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
