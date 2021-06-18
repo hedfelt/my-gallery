@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.scss";
 
 import { motion } from "framer-motion";
+import NavbarIcon from "../../../UI/NavbarIcon/NavbarIcon";
 
 const Navbar = ({ showModal, iconChange }) => {
   const top = {
@@ -32,6 +33,9 @@ const Navbar = ({ showModal, iconChange }) => {
       initial={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
+      <motion.div className="navbar__icon">
+        <NavbarIcon />
+      </motion.div>
       <motion.div className="navbar__hamburger" onClick={iconChange}>
         <motion.div
           className="navbar__upperbar"
@@ -46,6 +50,11 @@ const Navbar = ({ showModal, iconChange }) => {
           animate={showModal ? "opened" : "closed"}
         ></motion.div>
       </motion.div>
+      <div className="navbar__name">
+        Hanne
+        <br />
+        Edfelt
+      </div>
     </motion.nav>
   );
 };

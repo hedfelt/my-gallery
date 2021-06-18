@@ -47,7 +47,7 @@ export default function Works() {
   };
 
   return (
-    <motion.div className="flex_grid">
+    <motion.div className="flex_grid" data-scroll-section>
       {postData &&
         postData.map((post, index) => (
           <motion.div

@@ -69,5 +69,8 @@
     letter-spacing: 0.2rem;
     cursor: pointer;
     font-family: "Open Sans", sans-serif;
+    &:disabled {
+      background-color: black;
+    }
   }
 }

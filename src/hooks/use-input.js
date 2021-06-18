@@ -4,7 +4,9 @@ const useInput = (validateValue) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [isTouched, setIsTouched] = useState(false);
 
+  //validity:
   const valueIsValied = validateValue(enteredValue);
+  //only error if entered alue is not valid and the input field was not touched:
   const hasError = !valueIsValied && isTouched;
 
   const valueChangeHandler = (event) => {
@@ -15,9 +17,11 @@ const useInput = (validateValue) => {
     setIsTouched(true);
   };
 
+  //clear the input field:
+
   const reset = () => {
     setEnteredValue("");
-    setIsTouched(false);
+    setIsTouched(false); //reset the touched state because we now have "a brand nw form" after submission
   };
 
   return {

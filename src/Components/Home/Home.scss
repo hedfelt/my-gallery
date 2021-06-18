@@ -1,39 +1,73 @@
 .home {
-  // background-image: url("./fargeklatt2.png");
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-attachment: scroll;
-  &__image {
-    width: 100vw;
-    position: absolute;
-    top: -10rem;
-    z-index: 100;
-  }
   &__textgroup {
-    padding-top: 20vh;
+    padding-top: 34vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    line-height: 0.9;
-    font-size: 14vw;
+    line-height: 0.75;
+    color: rgb(178, 147, 244);
+  }
+  &__vertical {
+    transform: rotate(90deg);
+    position: absolute;
+    top: 20rem;
+    right: 20rem;
+  }
+  &__verticalTwo {
+    padding-top: 2.5rem;
+    position: absolute;
+    top: 23rem;
+    right: 43rem;
+    color: black;
+  }
+  &__behold {
+    white-space: nowrap;
+    padding-right: 5rem;
+  }
 
-    @media screen and (max-width: 1000px) {
-      padding-top: 10vh;
-      font-size: 20vw;
-    }
+  &__see {
+    padding-left: 1.4rem;
+  }
+  &__beholdTwo {
+    white-space: nowrap;
+    transform: rotate(85deg);
+    padding-top: 0.6rem;
+  }
+
+  &__seeTwo {
+    // padding-left: 1.4rem;
+    transform: rotate(95deg);
+    padding-bottom: 0.6rem;
+  }
+  &__hanne {
+    // padding-bottom: 2rem;
+    font-size: 15vw;
+  }
+  &__edfelt {
+    padding-top: 2rem;
+    font-size: 13vw;
   }
   &__portfolio {
-    font-size: 7vw;
-    color: black;
+    padding-top: 1rem;
+    font-size: 12vw;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(178, 147, 244);
   }
 
   &__art {
+    // font-size: 30rem;
     z-index: -1;
+    font-family: "dahlia";
+    color: rgb(212, 194, 189);
     position: relative;
-    left: -3rem;
-    top: -10rem;
-    transform: translate3d(0, 0, 0);
+    font-weight: 900;
+    top: -8rem;
+    left: -2rem;
+    // font-weight: bold;
+
+    // background-color: lightgrey;
     @media screen and (max-width: 1000px) {
       left: -1rem;
       top: -15rem;
@@ -45,13 +79,11 @@
   }
 
   &__watercolors {
-    // font-size: 5rem;
     color: black;
-    text-align: center;
-    position: absolute;
-    top: 70rem;
+    position: relative;
+    top: -15rem;
+
     font-size: 5vw;
-    padding-top: 10vh;
 
     @media screen and (max-width: 1000px) {
       margin-top: 10vh;
@@ -59,23 +91,89 @@
     }
   }
 
-  &__pink {
-    position: absolute;
-    top: 17rem;
-    left: 0rem;
-    z-index: 1;
+  &__duo {
+    display: flex;
+    width: 100vw;
+    text-align: center;
   }
-  &__orange {
-    position: absolute;
-    top: -5rem;
-    right: 0rem;
+  &__wrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__lorem {
+    padding: 8rem 0rem;
+    font-size: 4vw;
+    text-align: center;
+  }
+
+  //grid
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  // IMAGE brown girl
+  &__wrapperFour {
+    width: 100%;
+    grid-row: 1 / span 3;
+    grid-column: 2 / span 4;
+  }
+
+  &__containerFour {
+    width: 100%;
+  }
+  &__imageFour {
+    width: 100%;
+  }
+  // &__titleFour {
+  //   margin: 1rem;
+  //   width: 40%;
+  // }
+
+  // IMAGE cying girl
+  &__wrapperFive {
+    // font-size: 0.8rem;
+    grid-row: 3 / span 3;
+    grid-column: 1 / span 3;
+  }
+
+  &__containerFive {
+    // display: inline-block;
+    overflow: hidden;
+    height: 0;
+    width: 100%;
+    padding-bottom: 100%;
+  }
+
+  &__imageFive {
+    // display: block;
+    width: 100%;
+  }
+  &__title {
+    // margin: 1rem 0rem;
+  }
+  // IMAGE castle
+
+  &__wrapperSix {
+    font-size: 0.8rem;
+    // display: flex;
+    // flex-direction: column;
+    grid-row: 4 / span 3;
+    grid-column: 2 / span 5;
     z-index: -1;
   }
 
-  &__circle {
-    position: absolute;
-    top: 67rem;
-    right: 29rem;
-    z-index: 1;
+  &__containerSix {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+  }
+  &__imageSix {
+    display: block;
+    width: 100%;
   }
 }
